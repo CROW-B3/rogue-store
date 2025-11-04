@@ -1,2 +1,3 @@
-# rogue-store
-Rogue-Store is a full-stack demo clothing e-commerce site used as a test client for the Crow B3 tracking SDK, enabling realistic user-interaction flows, event capture and analytics for our pipeline.
+# bus-tourism-booking-platform
+
+Bus Tourism Booking Platform for South Sri Lanka
