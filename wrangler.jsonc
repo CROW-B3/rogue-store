@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bus-tourism-booking-platform",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-09-15",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "kv_namespaces": [
+    {
+      "binding": "NEXT_INC_CACHE_KV",
+      "id": "ddf64f260ff145f7bb345dae6a113a4d",
+    },
+  ],
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "bus-tourism-booking-platform",
+    }
+  ]
+}
