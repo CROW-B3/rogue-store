@@ -1,1 +1,1 @@
-npx commitlint --edit && pnpm run lint-staged 
+pnpm exec lint-staged
