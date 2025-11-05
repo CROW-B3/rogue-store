@@ -23,6 +23,14 @@ interface ProductPageProps {
   params: Promise<{ slug: string }>;
 }
 
+/**
+ * Render the product detail page for the route identified by `params.slug`.
+ *
+ * Renders product gallery, metadata, variants selector (if available), quantity controls, add-to-cart flow, and tabs for description, specifications, and shipping. If no product matches the slug, triggers a 404 via `notFound()`. Selecting variants and pressing "Add to Cart" will validate required variant selections, add the specified quantity of the product to the cart store, and produce success or error toasts.
+ *
+ * @param params - Route parameters containing a `slug` string identifying the product
+ * @returns The JSX element for the product detail page
+ */
 export default function ProductPage({ params }: ProductPageProps) {
   const { slug } = use(params);
   const product = products.find((p) => p.slug === slug);

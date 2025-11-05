@@ -9,6 +9,18 @@ interface VariantSelectorProps {
   onChange: (variantId: string, value: string) => void;
 }
 
+/**
+ * Render selectable buttons for each product variant and its values.
+ *
+ * Renders a labeled group for each variant with buttons for its values. The currently
+ * selected value for each variant is styled differently and clicking a value invokes
+ * the `onChange` callback with the variant id and chosen value.
+ *
+ * @param variants - Array of product variants to display
+ * @param selectedVariants - Map from variant id to the currently selected value
+ * @param onChange - Callback invoked as `onChange(variantId, value)` when a value is clicked
+ * @returns A JSX element containing labeled button groups for selecting variant values
+ */
 export function VariantSelector({
   variants,
   selectedVariants,

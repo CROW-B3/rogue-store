@@ -13,6 +13,12 @@ interface CartLineItemProps {
   item: CartItem;
 }
 
+/**
+ * Renders a single shopping cart row with product thumbnail, title, optional variants, unit price, quantity control, remove action, and line total.
+ *
+ * @param item - Cart line data containing `product` (with id, slug, title, images, price), `quantity`, and optional `selectedVariants`
+ * @returns The rendered cart line item element
+ */
 export function CartLineItem({ item }: CartLineItemProps) {
   const { updateQuantity, removeItem } = useCartStore();
   const lineTotal = item.product.price * item.quantity;

@@ -12,6 +12,14 @@ interface ProductCardProps {
   product: Product;
 }
 
+/**
+ * Render a clickable product card for the given product.
+ *
+ * Displays the product image, up to two tag badges (mapped to visual variants), the title, price, optional rating, and a two-line truncated description. The card links to the product page using `product.slug` and includes a subtle entrance animation and image hover effect.
+ *
+ * @param product - The product data used to populate the card (expects properties like `slug`, `images`, `title`, `price`, `rating`, `description`, and `tags`).
+ * @returns The JSX element representing the product card.
+ */
 export function ProductCard({ product }: ProductCardProps) {
   return (
     <motion.div

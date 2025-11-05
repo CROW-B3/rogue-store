@@ -20,6 +20,24 @@ interface ProductFiltersProps {
   onClearAll: () => void;
 }
 
+/**
+ * Renders a product filter panel with controls for categories, price range, and tags.
+ *
+ * Displays a list of category checkboxes, a price range slider with formatted bounds,
+ * and toggleable tag badges. Shows a "Clear all" control when any filter is active.
+ *
+ * @param categories - Available categories to show as checkbox items.
+ * @param tags - Available tags to show as toggleable badges.
+ * @param selectedCategories - Slugs of currently selected categories.
+ * @param selectedTags - Slugs of currently selected tags.
+ * @param priceRange - Current price range as a two-element tuple [min, max].
+ * @param maxPrice - Maximum allowed price for the slider.
+ * @param onCategoryChange - Callback invoked with the updated selected category slugs when a category is toggled.
+ * @param onTagChange - Callback invoked with the updated selected tag slugs when a tag is toggled.
+ * @param onPriceRangeChange - Callback invoked with the updated price range tuple when the slider value changes.
+ * @param onClearAll - Callback invoked when the "Clear all" control is activated.
+ * @returns The filter panel React element.
+ */
 export function ProductFilters({
   categories,
   tags,

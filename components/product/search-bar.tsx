@@ -12,6 +12,16 @@ interface SearchBarProps {
   placeholder?: string;
 }
 
+/**
+ * Render a search input with an inline search icon, debounced change notifications, and a clear button.
+ *
+ * The component keeps an internal input state synced to the `value` prop. User input updates the local state immediately and calls `onChange` after a 300ms debounce. The clear button resets the input and calls `onChange` with an empty string.
+ *
+ * @param value - Controlled input value shown in the search field
+ * @param onChange - Callback invoked when the input value changes; receives the new value
+ * @param placeholder - Optional placeholder text for the input (defaults to "Search products...")
+ * @returns A JSX element containing the search input with an inline search icon and an optional clear (X) button
+ */
 export function SearchBar({
   value,
   onChange,
