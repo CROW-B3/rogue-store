@@ -38,6 +38,7 @@ export function VariantSelector({
               const isSelected = selectedVariants[variant.id] === value;
               return (
                 <button
+                  type="button"
                   key={value}
                   onClick={() => onChange(variant.id, value)}
                   className={cn(

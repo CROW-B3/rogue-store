@@ -15,7 +15,7 @@ import { AlertTriangle } from "lucide-react";
  * @param reset - Callback invoked when the user clicks the "Try Again" button.
  * @returns The JSX element displaying the error UI and a "Try Again" button that calls `reset`.
  */
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {

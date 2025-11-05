@@ -73,6 +73,7 @@ export function Slider({
           step={step}
           value={localValue[0]}
           onChange={(e) => handleChange(0, Number(e.target.value))}
+          aria-label="Minimum value"
           className="pointer-events-auto absolute inset-0 z-10 h-2 w-full cursor-pointer opacity-0"
         />
         <input
@@ -82,6 +83,7 @@ export function Slider({
           step={step}
           value={localValue[1]}
           onChange={(e) => handleChange(1, Number(e.target.value))}
+          aria-label="Maximum value"
           className="pointer-events-auto absolute inset-0 z-10 h-2 w-full cursor-pointer opacity-0"
         />
         <div

@@ -31,13 +31,19 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="overflow-hidden rounded-lg border bg-card transition-all hover:shadow-lg">
           {/* Image */}
           <div className="relative aspect-square overflow-hidden bg-muted">
-            <Image
-              src={product.images[0]}
-              alt={product.title}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
+            {product.images[0] ? (
+              <Image
+                src={product.images[0]}
+                alt={product.title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-muted">
+                <span className="text-muted-foreground">No image</span>
+              </div>
+            )}
 
             {/* Badges */}
             {product.tags.length > 0 && (

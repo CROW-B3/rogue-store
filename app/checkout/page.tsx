@@ -34,10 +34,13 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     setIsClient(true);
-    if (items.length === 0) {
+  }, []);
+
+  useEffect(() => {
+    if (isClient && items.length === 0) {
       router.push("/cart");
     }
-  }, [items.length, router]);
+  }, [isClient, items.length, router]);
 
   if (!isClient) {
     return null;
@@ -163,7 +166,13 @@ export default function CheckoutPage() {
                 </Button>
 
                 <p className="mt-4 text-center text-xs text-muted-foreground">
-                  By placing this order, you agree to our Terms and Conditions
+                  By placing this order, you agree to our{" "}
+                  <Link
+                    href="/terms"
+                    className="underline hover:text-foreground"
+                  >
+                    Terms and Conditions
+                  </Link>
                 </p>
               </CardContent>
             </Card>

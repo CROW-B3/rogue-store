@@ -1,8 +1,4 @@
-export interface Tag {
-  id: string;
-  name: string;
-  slug: string;
-}
+import { Tag } from "@/lib/types";
 
 export const tags: Tag[] = [
   { id: "1", name: "New", slug: "new" },

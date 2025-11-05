@@ -23,6 +23,14 @@ interface ProductGalleryProps {
 export function ProductGallery({ images, title }: ProductGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0);
 
+  if (!images || images.length === 0) {
+    return (
+      <div className="flex h-full w-full items-center justify-center rounded-lg bg-muted p-12">
+        <span className="text-muted-foreground">No images available</span>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-4">
       {/* Main Image */}
