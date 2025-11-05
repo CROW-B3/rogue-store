@@ -23,8 +23,8 @@ export default defineConfig({
       use: { ...devices["iPhone 12"] },
     },
     {
-      name: "Google Chrome",
-      use: { ...devices["Desktop Chrome"], channel: "chrome" },
+      name: "Desktop Chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
   ],
 
