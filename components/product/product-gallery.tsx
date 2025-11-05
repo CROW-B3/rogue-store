@@ -9,6 +9,17 @@ interface ProductGalleryProps {
   title: string;
 }
 
+/**
+ * Render a product image gallery with a main image and optional clickable thumbnails.
+ *
+ * Displays the main image based on internal selection state. If more than one image is provided,
+ * renders a grid of thumbnails; clicking a thumbnail updates the main image and the active
+ * thumbnail is visually highlighted.
+ *
+ * @param images - Array of image URLs to display in the gallery, in display order.
+ * @param title - Product title used for image `alt` text for accessibility.
+ * @returns A JSX element containing the main image and, when applicable, a thumbnail grid.
+ */
 export function ProductGallery({ images, title }: ProductGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0);
 

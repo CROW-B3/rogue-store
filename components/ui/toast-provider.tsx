@@ -2,6 +2,11 @@
 
 import { Toaster } from "sonner";
 
+/**
+ * Renders a toast container positioned at the bottom-right with project-specific styling and button variants.
+ *
+ * @returns A React element that renders a configured `Toaster` for displaying toasts.
+ */
 export function ToastProvider() {
   return (
     <Toaster

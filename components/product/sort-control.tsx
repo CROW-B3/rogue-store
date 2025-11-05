@@ -8,6 +8,15 @@ interface SortControlProps {
   onChange: (value: SortOption) => void;
 }
 
+/**
+ * Renders a compact sort control with an icon and a dropdown for selecting product sort order.
+ *
+ * The dropdown offers the following options: Relevance, Price: Low to High, Price: High to Low, and Newest.
+ *
+ * @param value - The currently selected sort option.
+ * @param onChange - Callback invoked with the newly selected sort option when the user changes the selection.
+ * @returns The rendered sort control element.
+ */
 export function SortControl({ value, onChange }: SortControlProps) {
   const options: { value: SortOption; label: string }[] = [
     { value: "relevance", label: "Relevance" },

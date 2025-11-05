@@ -10,6 +10,19 @@ interface QuantityStepperProps {
   max?: number;
 }
 
+/**
+ * Renders a compact quantity selector with decrement and increment controls.
+ *
+ * The component displays the current `value` and calls `onChange` with a new value
+ * when the user increments or decrements within the provided `min` and `max` bounds.
+ * The controls are disabled when the value is at the corresponding bound for accessibility.
+ *
+ * @param value - Current quantity to display
+ * @param onChange - Callback invoked with the updated quantity when it changes
+ * @param min - Minimum allowed quantity (defaults to 1)
+ * @param max - Maximum allowed quantity (defaults to 99)
+ * @returns A JSX element containing the quantity stepper controls and current value
+ */
 export function QuantityStepper({
   value,
   onChange,

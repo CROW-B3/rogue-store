@@ -33,7 +33,12 @@ interface CartStore {
 }
 
 const SHIPPING_COST = 500; // LKR
-const TAX_RATE = 0.08; // 8%
+const TAX_RATE = 0.08; /**
+ * Compute order totals (subtotal, shipping, tax, and total) for the given cart items.
+ *
+ * @param items - List of cart items used to calculate totals
+ * @returns An OrderSummary containing `subtotal`, `shipping`, `tax`, and `total`
+ */
 
 function calculateSummary(items: CartItem[]): OrderSummary {
   const subtotal = items.reduce(
@@ -47,6 +52,15 @@ function calculateSummary(items: CartItem[]): OrderSummary {
   return { subtotal, shipping, tax, total };
 }
 
+/**
+ * Determines whether two variant maps represent the same selection.
+ *
+ * Compares two optional objects mapping variant keys to selected values; treats both `undefined`/`null` as equal, treats one missing and the other present as unequal, and otherwise compares their structural contents for equality.
+ *
+ * @param a - First variant map (e.g., selectedVariants) or `undefined`
+ * @param b - Second variant map (e.g., selectedVariants) or `undefined`
+ * @returns `true` if both are absent or their contents are equal, `false` otherwise
+ */
 function itemsMatch(
   a?: Record<string, string>,
   b?: Record<string, string>,

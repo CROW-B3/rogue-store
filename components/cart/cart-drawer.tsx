@@ -8,6 +8,16 @@ import { Price } from "@/components/ui/price";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
+/**
+ * Render a slide-in shopping cart drawer controlled by the cart store.
+ *
+ * Reads `isOpen`, `closeCart`, `items`, and `summary` from the cart store and, when open,
+ * displays a backdrop and a right-side panel showing either an empty-cart state or a list of cart items,
+ * plus subtotal, shipping, tax, total, and actions to proceed to checkout or view the cart.
+ * The backdrop, header close button, and footer action links invoke `closeCart` to close the drawer.
+ *
+ * @returns The cart drawer React element
+ */
 export function CartDrawer() {
   const { isOpen, closeCart, items, summary } = useCartStore();
 
