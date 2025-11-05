@@ -1,26 +1,30 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "rouge-store",
+  "name": "rogue-store",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat"],
   "main": ".open-next/worker.js",
-  "compatibility_date": "2025-09-15",
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  // Assets configuration
   "assets": {
-    "binding": "ASSETS",
     "directory": ".open-next/assets",
+    "binding": "ASSETS"
   },
-  "observability": {
-    "enabled": true,
+
+  // Site configuration
+  "site": {
+    "bucket": ".open-next/assets"
   },
-  "kv_namespaces": [
-    {
-      "binding": "NEXT_INC_CACHE_KV",
-      "id": "ddf64f260ff145f7bb345dae6a113a4d",
-    },
-  ],
-  "services": [
-    {
-      "binding": "WORKER_SELF_REFERENCE",
-      "service": "rouge-store",
-    },
-  ],
+
+  // Build configuration
+  "build": {
+    "command": "pnpm build:cloudflare",
+    "upload": {
+      "format": "service-worker"
+    }
+  }
+
+  // Environment variables (if needed)
+  // "vars": {
+  //   "NODE_ENV": "production"
+  // }
 }
