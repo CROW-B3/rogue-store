@@ -39,22 +39,6 @@ export function generateOrderNumber(): string {
 }
 
 /**
- * Produces a URL-friendly slug from the given text.
- *
- * @param text - The input text to convert into a slug
- * @returns The input converted to a lowercase, trimmed, hyphen-separated string containing only letters, numbers, hyphens, and underscores
- */
-export function slugify(text: string): string {
-  return text
-    .toString()
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w\-]+/g, "")
-    .replace(/\-\-+/g, "-");
-}
-
-/**
  * Creates a debounced wrapper that delays invoking `func` until `wait` milliseconds have elapsed since the last call.
  *
  * @param func - The function to debounce; its parameter types are preserved by the returned wrapper.
