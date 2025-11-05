@@ -2,6 +2,8 @@
 
 import { Category, Tag } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import { formatPrice } from "@/lib/utils";
 import { X } from "lucide-react";
@@ -73,7 +75,7 @@ export function ProductFilters({
   };
 
   return (
-    <div className="space-y-6 rounded-lg border bg-card p-6">
+    <Card className="space-y-6 p-6">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Filters</h2>
         {hasActiveFilters && (
@@ -93,18 +95,19 @@ export function ProductFilters({
         <h3 className="mb-3 text-sm font-medium">Categories</h3>
         <div className="space-y-2">
           {categories.map((category) => (
-            <label
-              key={category.id}
-              className="flex cursor-pointer items-center gap-2"
-            >
-              <input
-                type="checkbox"
+            <div key={category.id} className="flex items-center gap-2">
+              <Checkbox
+                id={`category-${category.slug}`}
                 checked={selectedCategories.includes(category.slug)}
-                onChange={() => toggleCategory(category.slug)}
-                className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                onCheckedChange={() => toggleCategory(category.slug)}
               />
-              <span className="text-sm capitalize">{category.name}</span>
-            </label>
+              <label
+                htmlFor={`category-${category.slug}`}
+                className="text-sm capitalize cursor-pointer"
+              >
+                {category.name}
+              </label>
+            </div>
           ))}
         </div>
       </div>
@@ -149,6 +152,6 @@ export function ProductFilters({
           })}
         </div>
       </div>
-    </div>
+    </Card>
   );
 }

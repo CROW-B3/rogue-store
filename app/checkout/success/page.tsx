@@ -2,6 +2,7 @@
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
@@ -45,10 +46,12 @@ function OrderSuccessContent() {
             placed.
           </p>
 
-          <div className="mt-8 rounded-lg border bg-card p-6">
-            <p className="text-sm text-muted-foreground">Order Number</p>
-            <p className="mt-2 text-2xl font-bold">{orderNumber}</p>
-          </div>
+          <Card className="mt-8">
+            <CardContent className="text-center">
+              <p className="text-sm text-muted-foreground">Order Number</p>
+              <p className="mt-2 text-2xl font-bold">{orderNumber}</p>
+            </CardContent>
+          </Card>
 
           <p className="mt-6 text-sm text-muted-foreground">
             We&apos;ve sent a confirmation email with your order details.

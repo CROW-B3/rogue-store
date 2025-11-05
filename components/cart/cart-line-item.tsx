@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CartItem } from "@/lib/types";
 import { useCartStore } from "@/lib/cart-store";
+import { Card } from "@/components/ui/card";
 import { Price } from "@/components/ui/price";
 import { QuantityStepper } from "@/components/product/quantity-stepper";
 import { Button } from "@/components/ui/button";
@@ -24,7 +25,7 @@ export function CartLineItem({ item }: CartLineItemProps) {
   const lineTotal = item.product.price * item.quantity;
 
   return (
-    <div className="flex gap-4 rounded-lg border p-4">
+    <Card className="flex gap-4 p-4">
       {/* Product Image */}
       <Link
         href={`/products/${item.product.slug}`}
@@ -91,6 +92,6 @@ export function CartLineItem({ item }: CartLineItemProps) {
           <Price amount={lineTotal} className="font-bold" />
         </div>
       </div>
-    </div>
+    </Card>
   );
 }

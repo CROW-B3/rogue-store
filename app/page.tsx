@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { ProductCard } from "@/components/product/product-card";
@@ -174,10 +175,10 @@ export default function HomePage() {
               className="mt-8 flex gap-2"
               onSubmit={(e) => e.preventDefault()}
             >
-              <input
+              <Input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 rounded-md border-0 px-4 py-3 text-foreground"
+                className="flex-1"
                 aria-label="Email for newsletter"
               />
               <Button
