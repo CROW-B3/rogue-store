@@ -31,7 +31,9 @@ export default function HomePage() {
             <div className="flex flex-col justify-center">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                 Elevate Your Style
-                <span className="block text-primary">Shop With Confidence</span>
+                <span className="block bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+                  Shop With Confidence
+                </span>
               </h1>
               <p className="mt-6 text-lg text-muted-foreground">
                 Discover our curated collection of premium products. From
@@ -69,8 +71,8 @@ export default function HomePage() {
         <Container>
           <div className="grid gap-8 sm:grid-cols-3">
             <div className="flex flex-col items-center text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <Truck className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-gray-100 to-gray-200">
+                <Truck className="h-6 w-6 text-foreground" />
               </div>
               <h3 className="mt-4 font-semibold">Free Shipping</h3>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -78,8 +80,8 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <Shield className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-gray-100 to-gray-200">
+                <Shield className="h-6 w-6 text-foreground" />
               </div>
               <h3 className="mt-4 font-semibold">Secure Payment</h3>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -87,8 +89,8 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <RotateCcw className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-gray-100 to-gray-200">
+                <RotateCcw className="h-6 w-6 text-foreground" />
               </div>
               <h3 className="mt-4 font-semibold">Easy Returns</h3>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -163,11 +165,11 @@ export default function HomePage() {
       </Section>
 
       {/* Newsletter */}
-      <Section className="bg-primary text-primary-foreground">
+      <Section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold">Stay in the Loop</h2>
-            <p className="mt-4 text-primary-foreground/90">
+            <p className="mt-4 text-white/80">
               Subscribe to our newsletter for exclusive offers, new arrivals,
               and style tips.
             </p>
