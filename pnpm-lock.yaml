@@ -53,6 +53,9 @@ importers:
       "@eslint/eslintrc":
         specifier: ^3
         version: 3.3.1
+      "@playwright/test":
+        specifier: ^1.56.1
+        version: 1.56.1
       "@tailwindcss/postcss":
         specifier: ^4
         version: 4.1.14
@@ -8152,7 +8155,6 @@ snapshots:
   "@playwright/test@1.56.1":
     dependencies:
       playwright: 1.56.1
-    optional: true
 
   "@poppinss/colors@4.1.5":
     dependencies:
@@ -10724,15 +10726,13 @@ snapshots:
 
   pidtree@0.6.0: {}
 
-  playwright-core@1.56.1:
-    optional: true
+  playwright-core@1.56.1: {}
 
   playwright@1.56.1:
     dependencies:
       playwright-core: 1.56.1
     optionalDependencies:
       fsevents: 2.3.2
-    optional: true
 
   possible-typed-array-names@1.1.0: {}
 
