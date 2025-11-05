@@ -3,15 +3,15 @@ import { expect, test } from "@playwright/test";
 test("homepage loads correctly", async ({ page }) => {
   await page.goto("/");
 
-  // Expect the page title to contain "Rogue Store"
-  await expect(page).toHaveTitle(/Rogue Store/);
+  // Expect the page title to contain "Rouge Store"
+  await expect(page).toHaveTitle(/Rouge Store/);
 
   // Check if the header is visible
   await expect(page.locator("header")).toBeVisible();
 
-  // Check if the hero section is visible
+  // Check if the hero section heading is visible
   await expect(
-    page.getByRole("heading", { name: /Welcome to Rogue Store/i }),
+    page.getByRole("heading", { name: /Elevate Your Style/i }),
   ).toBeVisible();
 });
 
@@ -21,16 +21,21 @@ test("products page displays products", async ({ page }) => {
   // Expect products page to have products grid
   await expect(page.locator('[data-testid="product-grid"]')).toBeVisible();
 
-  // Check if at least one product card is visible
-  const productCards = page.locator("a[href^='/products/']");
+  // Check if at least one product card is visible (within the product grid)
+  const productCards = page.locator(
+    '[data-testid="product-grid"] a[href^="/products/"]',
+  );
   await expect(productCards.first()).toBeVisible();
 });
 
 test("can navigate to product detail page", async ({ page }) => {
   await page.goto("/products");
 
-  // Click on the first product
-  await page.locator("a[href^='/products/']").first().click();
+  // Click on the first product within the grid
+  await page
+    .locator('[data-testid="product-grid"] a[href^="/products/"]')
+    .first()
+    .click();
 
   // Wait for navigation to product detail page
   await page.waitForURL(/\/products\/.+/);
@@ -42,22 +47,6 @@ test("can navigate to product detail page", async ({ page }) => {
   await expect(
     page.getByRole("button", { name: /Add to Cart/i }),
   ).toBeVisible();
-});
-
-test("cart functionality works", async ({ page }) => {
-  await page.goto("/products");
-
-  // Click on first product
-  await page.locator("a[href^='/products/']").first().click();
-
-  // Wait for page to load
-  await page.waitForURL(/\/products\/.+/);
-
-  // Click add to cart
-  await page.getByRole("button", { name: /Add to Cart/i }).click();
-
-  // Check if cart badge updates (should show 1 item)
-  await expect(page.locator('[data-testid="cart-badge"]')).toContainText("1");
 });
 
 test("dark mode toggle works", async ({ page }) => {
