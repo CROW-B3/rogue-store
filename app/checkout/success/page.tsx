@@ -35,9 +35,9 @@ function OrderSuccessContent() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring" }}
-            className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-green-100"
+            className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-gray-100 to-gray-200"
           >
-            <CheckCircle className="h-12 w-12 text-green-600" />
+            <CheckCircle className="h-12 w-12 text-foreground" />
           </motion.div>
 
           <h1 className="mt-8 text-3xl font-bold">Order Confirmed!</h1>
