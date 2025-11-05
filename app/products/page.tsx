@@ -3,7 +3,14 @@
 import { useState, useMemo, Suspense } from "react";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { Breadcrumbs } from "@/components/breadcrumbs";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { SearchBar } from "@/components/product/search-bar";
 import { SortControl } from "@/components/product/sort-control";
 import { ProductFilters } from "@/components/product/product-filters";
@@ -13,9 +20,10 @@ import { categories } from "@/data/categories";
 import { tags } from "@/data/tags";
 import { filterProducts, getMinMaxPrice } from "@/lib/product-filters";
 import { FilterOptions, SortOption } from "@/lib/types";
-import { Filter } from "lucide-react";
+import { Filter, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 /**
  * Renders the products listing content including search, sorting, filters, and the product grid.
@@ -50,7 +58,22 @@ function ProductsContent() {
     <div>
       <Section>
         <Container>
-          <Breadcrumbs items={[{ label: "Products" }]} />
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">
+                    <Home className="h-4 w-4" />
+                    <span className="sr-only">Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Products</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
           <div className="mt-6">
             <h1 className="text-3xl font-bold">All Products</h1>

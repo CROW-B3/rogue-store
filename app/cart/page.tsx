@@ -2,13 +2,22 @@
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { Breadcrumbs } from "@/components/breadcrumbs";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { CartLineItem } from "@/components/cart/cart-line-item";
 import { Price } from "@/components/ui/price";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/lib/cart-store";
 import Link from "next/link";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, Home } from "lucide-react";
 
 /**
  * Render the shopping cart page with either an empty-cart view or a populated cart and order summary.
@@ -26,7 +35,22 @@ export default function CartPage() {
     return (
       <Section>
         <Container>
-          <Breadcrumbs items={[{ label: "Cart" }]} />
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">
+                    <Home className="h-4 w-4" />
+                    <span className="sr-only">Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Cart</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <div className="mt-12 flex flex-col items-center justify-center py-12 text-center">
             <ShoppingBag className="h-24 w-24 text-muted-foreground" />
             <h1 className="mt-6 text-2xl font-bold">Your cart is empty</h1>
@@ -45,7 +69,22 @@ export default function CartPage() {
   return (
     <Section>
       <Container>
-        <Breadcrumbs items={[{ label: "Cart" }]} />
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">
+                  <Home className="h-4 w-4" />
+                  <span className="sr-only">Home</span>
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Cart</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
         <h1 className="mt-6 text-3xl font-bold">Shopping Cart</h1>
 
@@ -61,37 +100,41 @@ export default function CartPage() {
 
           {/* Order Summary */}
           <div>
-            <div className="sticky top-24 rounded-lg border bg-card p-6">
-              <h2 className="text-lg font-semibold">Order Summary</h2>
+            <Card className="sticky top-24">
+              <CardHeader>
+                <CardTitle>Order Summary</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Subtotal</span>
+                    <Price amount={summary.subtotal} />
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Shipping</span>
+                    <Price amount={summary.shipping} />
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Tax</span>
+                    <Price amount={summary.tax} />
+                  </div>
+                  <Separator className="my-3" />
+                  <div className="flex justify-between text-lg font-bold">
+                    <span>Total</span>
+                    <Price amount={summary.total} />
+                  </div>
+                </div>
 
-              <div className="mt-6 space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Subtotal</span>
-                  <Price amount={summary.subtotal} />
+                <div className="mt-6 space-y-3">
+                  <Button size="lg" className="w-full" asChild>
+                    <Link href="/checkout">Proceed to Checkout</Link>
+                  </Button>
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link href="/products">Continue Shopping</Link>
+                  </Button>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Shipping</span>
-                  <Price amount={summary.shipping} />
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Tax</span>
-                  <Price amount={summary.tax} />
-                </div>
-                <div className="flex justify-between border-t pt-3 text-lg font-bold">
-                  <span>Total</span>
-                  <Price amount={summary.total} />
-                </div>
-              </div>
-
-              <div className="mt-6 space-y-3">
-                <Button size="lg" className="w-full" asChild>
-                  <Link href="/checkout">Proceed to Checkout</Link>
-                </Button>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link href="/products">Continue Shopping</Link>
-                </Button>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </Container>
