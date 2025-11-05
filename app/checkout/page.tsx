@@ -2,7 +2,16 @@
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { Breadcrumbs } from "@/components/breadcrumbs";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { Price } from "@/components/ui/price";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/lib/cart-store";
@@ -10,6 +19,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { generateOrderNumber } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Home } from "lucide-react";
 
 /**
  * Renders the checkout page with an order summary and payment summary, handles client-side-only rendering and navigation for empty carts, and provides a "Place Order" action that clears the cart and navigates to a success page.
@@ -45,18 +56,39 @@ export default function CheckoutPage() {
   return (
     <Section>
       <Container>
-        <Breadcrumbs
-          items={[{ label: "Cart", href: "/cart" }, { label: "Checkout" }]}
-        />
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">
+                  <Home className="h-4 w-4" />
+                  <span className="sr-only">Home</span>
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/cart">Cart</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Checkout</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
         <h1 className="mt-6 text-3xl font-bold">Checkout</h1>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-3">
           {/* Order Items */}
           <div className="lg:col-span-2">
-            <div className="rounded-lg border bg-card p-6">
-              <h2 className="text-lg font-semibold">Order Summary</h2>
-              <div className="mt-6 space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle>Order Summary</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
                 {items.map((item, index) => (
                   <div
                     key={`${item.product.id}-${index}`}
@@ -91,46 +123,50 @@ export default function CheckoutPage() {
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Payment Summary */}
           <div>
-            <div className="sticky top-24 rounded-lg border bg-card p-6">
-              <h2 className="text-lg font-semibold">Payment Summary</h2>
+            <Card className="sticky top-24">
+              <CardHeader>
+                <CardTitle>Payment Summary</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Subtotal</span>
+                    <Price amount={summary.subtotal} />
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Shipping</span>
+                    <Price amount={summary.shipping} />
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Tax</span>
+                    <Price amount={summary.tax} />
+                  </div>
+                  <Separator className="my-3" />
+                  <div className="flex justify-between text-lg font-bold">
+                    <span>Total</span>
+                    <Price amount={summary.total} />
+                  </div>
+                </div>
 
-              <div className="mt-6 space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Subtotal</span>
-                  <Price amount={summary.subtotal} />
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Shipping</span>
-                  <Price amount={summary.shipping} />
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Tax</span>
-                  <Price amount={summary.tax} />
-                </div>
-                <div className="flex justify-between border-t pt-3 text-lg font-bold">
-                  <span>Total</span>
-                  <Price amount={summary.total} />
-                </div>
-              </div>
+                <Button
+                  size="lg"
+                  className="mt-6 w-full"
+                  onClick={handlePlaceOrder}
+                >
+                  Place Order
+                </Button>
 
-              <Button
-                size="lg"
-                className="mt-6 w-full"
-                onClick={handlePlaceOrder}
-              >
-                Place Order
-              </Button>
-
-              <p className="mt-4 text-center text-xs text-muted-foreground">
-                By placing this order, you agree to our Terms and Conditions
-              </p>
-            </div>
+                <p className="mt-4 text-center text-xs text-muted-foreground">
+                  By placing this order, you agree to our Terms and Conditions
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </Container>

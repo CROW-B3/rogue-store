@@ -4,7 +4,14 @@ import { notFound } from "next/navigation";
 import { useState, use } from "react";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { Breadcrumbs } from "@/components/breadcrumbs";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { ProductGallery } from "@/components/product/product-gallery";
 import { VariantSelector } from "@/components/product/variant-selector";
 import { QuantityStepper } from "@/components/product/quantity-stepper";
@@ -15,9 +22,10 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { products } from "@/data/products";
 import { useCartStore } from "@/lib/cart-store";
-import { ShoppingCart, Check } from "lucide-react";
+import { ShoppingCart, Check, Home } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -78,12 +86,28 @@ export default function ProductPage({ params }: ProductPageProps) {
     <div>
       <Section>
         <Container>
-          <Breadcrumbs
-            items={[
-              { label: "Products", href: "/products" },
-              { label: product.title },
-            ]}
-          />
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">
+                    <Home className="h-4 w-4" />
+                    <span className="sr-only">Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/products">Products</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{product.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             {/* Gallery */}
