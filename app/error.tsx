@@ -6,6 +6,15 @@ import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle } from "lucide-react";
 
+/**
+ * Renders a centered error screen with an alert icon, message, and retry button.
+ *
+ * Logs the provided `error` to the console when the component mounts or when `error` changes.
+ *
+ * @param error - The error to provide context for; may include an optional `digest` string.
+ * @param reset - Callback invoked when the user clicks the "Try Again" button.
+ * @returns The JSX element displaying the error UI and a "Try Again" button that calls `reset`.
+ */
 export default function Error({
   error,
   reset,

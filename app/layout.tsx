@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     "Discover premium products crafted with care. Quality you can trust, style you'll love.",
 };
 
+/**
+ * Application root layout that provides the HTML structure, global font, header, footer, and global UI components.
+ *
+ * @param children - The page content to render inside the layout's main container.
+ * @returns The root HTML element containing the rendered application layout.
+ */
 export default function RootLayout({
   children,
 }: {

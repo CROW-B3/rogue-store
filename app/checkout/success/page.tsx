@@ -9,6 +9,15 @@ import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Suspense } from "react";
 
+/**
+ * Render the order confirmation UI that displays the order number from the URL and provides navigation actions.
+ *
+ * Reads the "order" search parameter (defaults to "N/A" if missing) and renders a centered confirmation layout
+ * with a check icon, order summary card, confirmation messages, and action buttons for continuing shopping or
+ * returning to the home page.
+ *
+ * @returns The React element for the order confirmation page.
+ */
 function OrderSuccessContent() {
   const searchParams = useSearchParams();
   const orderNumber = searchParams.get("order") || "N/A";
@@ -60,6 +69,14 @@ function OrderSuccessContent() {
   );
 }
 
+/**
+ * Page component that renders the order confirmation UI.
+ *
+ * Wraps the order success content with a React Suspense boundary that shows a simple
+ * loading fallback while the content is resolving.
+ *
+ * @returns A React element containing the order success content wrapped with a Suspense fallback.
+ */
 export default function OrderSuccessPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>

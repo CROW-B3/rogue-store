@@ -9,6 +9,14 @@ import { useCartStore } from "@/lib/cart-store";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
+/**
+ * Render the application's responsive header with branding, navigation, and action controls.
+ *
+ * The header includes a logo link, desktop navigation for larger viewports, a toggleable mobile menu,
+ * a search link, a theme switch, and a shopping cart button that displays an item count badge when nonzero.
+ *
+ * @returns The header JSX element containing branding, navigation links, and action buttons.
+ */
 export function Header() {
   const { itemCount, toggleCart } = useCartStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

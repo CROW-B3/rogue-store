@@ -12,6 +12,12 @@ const TabsContext = React.createContext<TabsContextValue | undefined>(
   undefined,
 );
 
+/**
+ * Read the Tabs context and return the current tabs state and updater.
+ *
+ * @returns The Tabs context value — an object with `activeTab: string` and `setActiveTab: (value: string) => void`.
+ * @throws Error when there is no enclosing Tabs provider (i.e., the hook is used outside of Tabs).
+ */
 function useTabs() {
   const context = React.useContext(TabsContext);
   if (!context) {
@@ -26,6 +32,14 @@ interface TabsProps {
   className?: string;
 }
 
+/**
+ * Provides tab state to descendants and renders a wrapper for tab elements.
+ *
+ * @param defaultValue - The initial active tab value.
+ * @param children - Child elements that can consume the tabs context.
+ * @param className - Optional CSS class applied to the wrapper div.
+ * @returns A React element that supplies the tabs context (`activeTab` and `setActiveTab`) to its descendants and wraps `children` in a div.
+ */
 export function Tabs({ defaultValue, children, className }: TabsProps) {
   const [activeTab, setActiveTab] = React.useState(defaultValue);
 
@@ -41,6 +55,11 @@ interface TabsListProps {
   className?: string;
 }
 
+/**
+ * Renders a styled container that groups tab triggers.
+ *
+ * @returns A div element that wraps `children` with the tab-list layout and styling
+ */
 export function TabsList({ children, className }: TabsListProps) {
   return (
     <div
@@ -60,6 +79,14 @@ interface TabsTriggerProps {
   className?: string;
 }
 
+/**
+ * Renders a tab trigger button that selects its tab when clicked.
+ *
+ * @param value - Identifier for this tab; clicking the trigger sets the active tab to this value
+ * @param children - Contents rendered inside the trigger button
+ * @param className - Optional additional class name(s) to apply to the button
+ * @returns The trigger button element
+ */
 export function TabsTrigger({ value, children, className }: TabsTriggerProps) {
   const { activeTab, setActiveTab } = useTabs();
   const isActive = activeTab === value;
@@ -86,6 +113,14 @@ interface TabsContentProps {
   className?: string;
 }
 
+/**
+ * Renders tab panel content when its `value` matches the current active tab.
+ *
+ * @param value - Identifier for this tab panel; shown only when it equals the active tab
+ * @param children - Content to render inside the panel
+ * @param className - Optional additional CSS classes applied to the panel container
+ * @returns The panel's rendered element when `value` matches the active tab, `null` otherwise
+ */
 export function TabsContent({ value, children, className }: TabsContentProps) {
   const { activeTab } = useTabs();
 

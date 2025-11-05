@@ -5,6 +5,12 @@ interface ProductGridProps {
   products: Product[];
 }
 
+/**
+ * Renders a responsive grid of product cards or a centered placeholder when no products are available.
+ *
+ * @param products - Array of products to display in the grid.
+ * @returns A React element containing either a placeholder panel when `products` is empty or a responsive grid of `ProductCard` components.
+ */
 export function ProductGrid({ products }: ProductGridProps) {
   if (products.length === 0) {
     return (

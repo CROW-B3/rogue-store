@@ -10,6 +10,13 @@ import { products } from "@/data/products";
 import { categories } from "@/data/categories";
 import { ArrowRight, Truck, Shield, RotateCcw } from "lucide-react";
 
+/**
+ * Render the site's homepage composed of a hero, feature highlights, category grid, featured products, and newsletter sections.
+ *
+ * The component derives featured products from the products data (first four items) and uses categories to build the category grid.
+ *
+ * @returns The React element representing the homepage.
+ */
 export default function HomePage() {
   // Featured products (first 4)
   const featuredProducts = products.slice(0, 4);
