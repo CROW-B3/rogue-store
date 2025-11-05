@@ -23,6 +23,7 @@ export function ThemeToggle() {
 
   return (
     <Button
+      data-testid="theme-toggle"
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
