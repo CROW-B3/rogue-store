@@ -9,10 +9,6 @@ main = ".open-next/worker.js"
 directory = ".open-next/assets"
 binding = "ASSETS"
 
-# Site configuration
-[site]
-bucket = ".open-next/assets"
-
 # Build configuration
 [build]
 command = "pnpm build:cloudflare"
