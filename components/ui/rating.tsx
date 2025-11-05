@@ -9,6 +9,20 @@ interface RatingProps {
   className?: string;
 }
 
+/**
+ * Render a star-based rating visualization.
+ *
+ * Displays up to `maxRating` stars where full stars represent the integer portion
+ * of `rating` and a partial star represents a fractional portion; optionally
+ * shows the numeric rating value formatted to one decimal place.
+ *
+ * @param rating - The rating value to visualize (typically between 0 and `maxRating`)
+ * @param maxRating - The total number of stars to display
+ * @param size - Visual size of each star: `"sm"`, `"md"`, or `"lg"`
+ * @param showValue - Whether to show the numeric rating value next to the stars
+ * @param className - Additional container class names
+ * @returns A JSX element that displays the star visualization and optional numeric value
+ */
 export function Rating({
   rating,
   maxRating = 5,

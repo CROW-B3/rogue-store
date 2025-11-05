@@ -6,6 +6,13 @@ import { Facebook, Instagram, Twitter, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+/**
+ * Render the site footer with brand, a newsletter signup form, three categorized link groups (Shop, Support, Company), and social icon links.
+ *
+ * The footer displays the current year in the copyright line and prevents the newsletter form from submitting.
+ *
+ * @returns A React element containing the complete footer layout
+ */
 export function Footer() {
   const currentYear = new Date().getFullYear();
 

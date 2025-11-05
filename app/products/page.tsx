@@ -17,6 +17,13 @@ import { Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 
+/**
+ * Renders the products listing content including search, sorting, filters, and the product grid.
+ *
+ * Initializes filter state from URL parameters and product data, keeps a memoized filtered list in sync with user controls, and exposes UI for searching, sorting, toggling filters, and clearing filter state.
+ *
+ * @returns The JSX element containing the products page content, including filter controls, product count summary, and the product grid.
+ */
 function ProductsContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category") || "";
@@ -127,6 +134,11 @@ function ProductsContent() {
   );
 }
 
+/**
+ * Page component that renders the products listing inside a Suspense boundary.
+ *
+ * @returns The page element that renders ProductsContent with a "Loading..." Suspense fallback.
+ */
 export default function ProductsPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>

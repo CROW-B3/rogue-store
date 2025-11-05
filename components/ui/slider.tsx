@@ -12,6 +12,17 @@ interface SliderProps {
   className?: string;
 }
 
+/**
+ * Render a dual-handle range slider that lets the user select and adjust a numeric range.
+ *
+ * @param min - Minimum allowed value for the range
+ * @param max - Maximum allowed value for the range
+ * @param step - Increment step for each handle movement
+ * @param value - Current range as a two-element tuple `[minValue, maxValue]`
+ * @param onValueChange - Callback invoked with the updated `[minValue, maxValue]` when either handle moves
+ * @param className - Optional additional CSS class names applied to the component wrapper
+ * @returns The rendered slider element with two draggable handles and a highlighted active range
+ */
 export function Slider({
   min,
   max,

@@ -4,6 +4,11 @@ import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { Home, Search } from "lucide-react";
 
+/**
+ * Renders a 404 "Page Not Found" UI with prominent status, descriptive text, and actions to go home or browse products.
+ *
+ * @returns A React element rendering the 404 page with navigation buttons to "/" and "/products".
+ */
 export default function NotFound() {
   return (
     <Section>

@@ -10,6 +10,15 @@ import { useCartStore } from "@/lib/cart-store";
 import Link from "next/link";
 import { ShoppingBag } from "lucide-react";
 
+/**
+ * Render the shopping cart page with either an empty-cart view or a populated cart and order summary.
+ *
+ * The empty view shows a centered message and a call-to-action to continue shopping. The populated view
+ * lists cart line items and displays an order summary with subtotal, shipping, tax, total, and actions
+ * to proceed to checkout or continue shopping.
+ *
+ * @returns The cart page JSX element that reflects the current cart state (empty or populated).
+ */
 export default function CartPage() {
   const { items, summary } = useCartStore();
 
