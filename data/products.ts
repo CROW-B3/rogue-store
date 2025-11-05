@@ -45,8 +45,8 @@ export const products: Product[] = [
     price: 6500,
     currency: "LKR",
     images: [
-      "https://images.unsplash.com/photo-1542272454315-7f6c8803b722?w=800&q=80",
-      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80",
+      "https://images.unsplash.com/photo-1604176354204-9268737828e4?w=800&q=80",
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800&q=80",
     ],
     variants: [
       {
