@@ -1,10 +1,4 @@
-export interface Category {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  image: string;
-}
+import { Category } from "@/lib/types";
 
 export const categories: Category[] = [
   {

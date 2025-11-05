@@ -1,24 +1,4 @@
-export interface ProductVariant {
-  id: string;
-  name: string;
-  values: string[];
-}
-
-export interface Product {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  category: string;
-  tags: string[];
-  price: number;
-  currency: "LKR";
-  images: string[];
-  variants?: ProductVariant[];
-  rating?: number;
-  createdAt: string;
-  specs?: Record<string, string>;
-}
+import { Product, ProductVariant } from "@/lib/types";
 
 export const products: Product[] = [
   // Apparel Products
