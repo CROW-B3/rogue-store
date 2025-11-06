@@ -1,20 +1,52 @@
 import { expect, test } from "@playwright/test";
 
-test("has title", async ({ page }) => {
-        await page.goto("https://playwright.dev/");
+test("homepage loads correctly", async ({ page }) => {
+  await page.goto("/");
 
-        // Expect a title "to contain" a substring.
-        await expect(page).toHaveTitle(/Playwright/);
+  await expect(page).toHaveTitle(/Rouge Store/);
+  await expect(page.locator("header")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: /Elevate Your Style/i }),
+  ).toBeVisible();
 });
 
-test("get started link", async ({ page }) => {
-        await page.goto("https://playwright.dev/");
+test("products page displays products", async ({ page }) => {
+  await page.goto("/products");
 
-        // Click the get started link.
-        await page.getByRole("link", { name: "Get started" }).click();
+  await expect(page.locator('[data-testid="product-grid"]')).toBeVisible();
 
-        // Expects page to have a heading with the name of Installation.
-        await expect(
-                page.getByRole("heading", { name: "Installation" }),
-        ).toBeVisible();
+  const productCards = page.locator(
+    '[data-testid="product-grid"] a[href^="/products/"]',
+  );
+  await expect(productCards.first()).toBeVisible();
+});
+
+test("can navigate to product detail page", async ({ page }) => {
+  await page.goto("/products");
+
+  await page
+    .locator('[data-testid="product-grid"] a[href^="/products/"]')
+    .first()
+    .click();
+
+  await page.waitForURL(/\/products\/.+/);
+
+  await expect(page.locator("h1")).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: /Add to Cart/i }),
+  ).toBeVisible();
+});
+
+test("dark mode toggle works", async ({ page }) => {
+  await page.goto("/");
+
+  const themeToggle = page.locator('[data-testid="theme-toggle"]');
+  const html = page.locator("html");
+  const initialTheme = await html.getAttribute("class");
+
+  await themeToggle.click();
+  await page.waitForTimeout(500);
+
+  const newTheme = await html.getAttribute("class");
+  expect(initialTheme).not.toEqual(newTheme);
 });

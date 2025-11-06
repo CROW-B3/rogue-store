@@ -1,0 +1,19 @@
+name = "rogue-store"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+main = ".open-next/worker.js"
+
+# Assets configuration
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+# Build configuration
+[build]
+command = "pnpm build:cloudflare"
+upload = { format = "service-worker" }
+
+# Environment variables (if needed)
+# [vars]
+# NODE_ENV = "production"
