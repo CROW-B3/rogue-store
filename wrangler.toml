@@ -1,4 +1,4 @@
-name = "rogue-store"
+name = "rouge-store"
 compatibility_date = "2025-01-01"
 compatibility_flags = ["nodejs_compat"]
 
