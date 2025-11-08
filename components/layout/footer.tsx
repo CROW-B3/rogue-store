@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./container";
 import { Facebook, Instagram, Twitter, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -50,13 +51,14 @@ export function Footer() {
         <div className="grid gap-8 py-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand & Newsletter */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
-                <span className="text-lg font-bold text-primary-foreground">
-                  R
-                </span>
-              </div>
-              <span className="text-xl font-bold">Rouge Store</span>
+            <Link href="/" className="flex items-center text-foreground">
+              <Image
+                src="/logo.svg"
+                alt="rouge."
+                width={200}
+                height={60}
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
               Discover premium products crafted with care. Quality you can
@@ -140,7 +142,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t py-6 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Rouge Store. All rights reserved.
+            © {currentYear} rouge. All rights reserved.
           </p>
 
           {/* Social Links */}

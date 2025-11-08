@@ -7,7 +7,7 @@ export const categories: Category[] = [
     slug: "apparel",
     description: "Premium clothing and fashion",
     image:
-      "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&q=80",
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=95",
   },
   {
     id: "2",
@@ -15,7 +15,7 @@ export const categories: Category[] = [
     slug: "accessories",
     description: "Stylish bags, watches, and more",
     image:
-      "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=800&q=80",
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1920&q=95",
   },
   {
     id: "3",
@@ -23,7 +23,7 @@ export const categories: Category[] = [
     slug: "home",
     description: "Elegant home decor and furniture",
     image:
-      "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=95",
   },
   {
     id: "4",
@@ -31,6 +31,6 @@ export const categories: Category[] = [
     slug: "tech",
     description: "Latest gadgets and electronics",
     image:
-      "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&q=80",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=1920&q=95",
   },
 ];
