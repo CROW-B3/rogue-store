@@ -51,9 +51,9 @@ export function Header() {
           >
             <Image
               src="/logo.svg"
-              alt="rouge."
+              alt="Rouge Store Logo"
               width={200}
-              height={60}
+              height={80}
               priority
               className="h-12 w-auto sm:h-14"
             />
