@@ -142,7 +142,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t py-6 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} rouge. All rights reserved.
+            © {currentYear} Rouge Store. All rights reserved.
           </p>
 
           {/* Social Links */}
