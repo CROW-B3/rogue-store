@@ -37,16 +37,18 @@ test("can navigate to product detail page", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("dark mode toggle works", async ({ page }) => {
-  await page.goto("/");
+test("cart functionality works", async ({ page }) => {
+  await page.goto("/products");
 
-  const themeToggle = page.locator('[data-testid="theme-toggle"]');
-  const html = page.locator("html");
-  const initialTheme = await html.getAttribute("class");
+  await page
+    .locator('[data-testid="product-grid"] a[href^="/products/"]')
+    .first()
+    .click();
 
-  await themeToggle.click();
-  await page.waitForTimeout(500);
+  await page.waitForURL(/\/products\/.+/);
 
-  const newTheme = await html.getAttribute("class");
-  expect(initialTheme).not.toEqual(newTheme);
+  const addToCartButton = page.getByRole("button", { name: /Add to Cart/i });
+  await addToCartButton.click();
+
+  await expect(page.getByText(/Added to cart/i)).toBeVisible();
 });
