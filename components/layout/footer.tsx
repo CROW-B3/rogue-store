@@ -56,7 +56,7 @@ export function Footer() {
                 src="/logo.svg"
                 alt="Rouge Store Logo"
                 width={200}
-                height={60}
+                height={80}
                 className="h-12 w-auto"
               />
             </Link>
