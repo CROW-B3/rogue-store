@@ -20,7 +20,10 @@ interface ProductCardProps {
  */
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <Link href={`/products/${product.slug}`} className="group block">
+    <Link
+      href={`/products/${product.slug}`}
+      className="group block wiggle-on-click"
+    >
       <div className="overflow-hidden">
         {/* Image - Borderless, Clean */}
         <div className="relative aspect-square overflow-hidden bg-muted image-loading mb-4">

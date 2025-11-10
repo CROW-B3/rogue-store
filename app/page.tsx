@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { ProductCard } from "@/components/product/product-card";
+import { ProductSection } from "@/components/product/product-section";
 import { products } from "@/data/products";
 import { categories } from "@/data/categories";
 import { ArrowRight, Truck, Shield, RotateCcw } from "lucide-react";
@@ -22,8 +22,14 @@ import { AnimatePresence } from "framer-motion";
  * @returns The React element representing the homepage.
  */
 export default function HomePage() {
-  // Featured products (first 4)
-  const featuredProducts = products.slice(0, 4);
+  // Featured products for homepage
+  const newArrivals = products
+    .filter((p) => p.tags.includes("new"))
+    .slice(0, 8);
+  const bestSellers = products
+    .filter((p) => p.tags.includes("bestseller"))
+    .slice(0, 4);
+
   const heroRef = useRef<HTMLDivElement>(null);
 
   // Hero images array
@@ -88,17 +94,24 @@ export default function HomePage() {
                 Discover curated collections crafted for the modern minimalist.
               </motion.p>
               <motion.div
-                className="mt-12 flex flex-wrap gap-4"
+                className="mt-16 flex flex-col items-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <Button size="lg" className="group" asChild>
-                  <Link href="/products">
-                    Shop Collection
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
+                <span className="text-uppercase-sm text-muted-foreground mb-3">
+                  Scroll to explore
+                </span>
+                <motion.div
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <ArrowRight className="h-5 w-5 rotate-90 text-foreground" />
+                </motion.div>
               </motion.div>
             </motion.div>
 
@@ -157,54 +170,16 @@ export default function HomePage() {
         </Container>
       </div>
 
-      {/* Minimal Features */}
-      <Section className="py-20 md:py-32">
-        <Container>
-          <motion.div
-            className="grid gap-16 sm:grid-cols-3"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            {[
-              {
-                icon: Truck,
-                title: "FREE SHIPPING",
-                desc: "On orders over LKR 10,000",
-              },
-              {
-                icon: Shield,
-                title: "SECURE PAYMENT",
-                desc: "100% secure transactions",
-              },
-              {
-                icon: RotateCcw,
-                title: "EASY RETURNS",
-                desc: "30-day return policy",
-              },
-            ].map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <motion.div
-                  key={feature.title}
-                  className="flex flex-col items-center text-center group"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Icon className="h-8 w-8 text-foreground transition-transform duration-300 group-hover:-translate-y-1" />
-                  <h3 className="mt-6 text-uppercase-sm">{feature.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground font-light">
-                    {feature.desc}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </Container>
-      </Section>
+      {/* New Arrivals Section */}
+      {newArrivals.length > 0 && (
+        <ProductSection
+          title="NEW ARRIVALS"
+          subtitle="Fresh picks just for you"
+          products={newArrivals}
+          columns={4}
+          className="py-20 md:py-32"
+        />
+      )}
 
       {/* Bold Categories - Asymmetric Grid */}
       <Section className="py-16 md:py-24">
@@ -231,7 +206,7 @@ export default function HomePage() {
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                 >
                   <Link
-                    href={`/products?category=${category.slug}`}
+                    href={`/${category.slug}`}
                     className="group relative overflow-hidden image-zoom-hover block h-full"
                   >
                     <div
@@ -260,43 +235,16 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Featured Products - Enhanced Grid */}
-      <Section className="py-20 md:py-32">
-        <Container className="max-w-[1400px]">
-          <div className="mb-16 flex items-end justify-between">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-headline">FEATURED</h2>
-              <p className="mt-4 text-muted-foreground font-light">
-                Handpicked essentials
-              </p>
-            </motion.div>
-            <Button variant="ghost" className="group" asChild>
-              <Link href="/products">
-                <span className="text-uppercase-sm">View All</span>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <ProductCard product={product} />
-              </motion.div>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {/* Best Sellers Section */}
+      {bestSellers.length > 0 && (
+        <ProductSection
+          title="BEST SELLERS"
+          subtitle="Customer favorites"
+          products={bestSellers}
+          columns={4}
+          className="bg-secondary/30"
+        />
+      )}
 
       {/* Minimal Newsletter - Inverted Background */}
       <Section className="bg-primary text-primary-foreground py-32">

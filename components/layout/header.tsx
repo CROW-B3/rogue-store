@@ -9,6 +9,7 @@ import { useCartStore } from "@/lib/cart-store";
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { MegaMenu } from "./mega-menu";
 
 /**
  * Render the application's responsive header with branding, navigation, and action controls.
@@ -32,19 +33,21 @@ export function Header() {
     }
   }, [itemCount]);
 
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Shop", href: "/products" },
+  const mobileNavigation = [
+    { name: "Men", href: "/men" },
+    { name: "Women", href: "/women" },
+    { name: "Accessories", href: "/accessories" },
+    { name: "Gifts", href: "/gifts" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background backdrop-blur-xl">
+    <header className="sticky top-0 z-[60] w-full border-b border-border/40 bg-background backdrop-blur-xl">
       <Container>
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center transition-opacity hover:opacity-70 text-foreground"
+            className="flex items-center transition-opacity hover:opacity-50 text-foreground"
           >
             <Image
               src="/logo.svg"
@@ -56,32 +59,19 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-8 md:flex">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-uppercase-sm text-foreground/80 hover:text-foreground transition-colors relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-foreground transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-          </nav>
+          {/* Desktop Mega Menu Navigation */}
+          <MegaMenu />
 
           {/* Right Actions */}
           <div className="flex items-center gap-1">
-            <Link href="/products">
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Search"
-                className="hover:bg-transparent text-foreground"
-              >
-                <Search className="h-5 w-5" />
-              </Button>
-            </Link>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Search"
+              className="hover:bg-transparent text-foreground"
+            >
+              <Search className="h-5 w-5 text-foreground" />
+            </Button>
 
             <motion.div
               animate={
@@ -98,7 +88,7 @@ export function Header() {
                 className="relative hover:bg-transparent text-foreground"
                 aria-label="Shopping cart"
               >
-                <ShoppingCart className="h-5 w-5" />
+                <ShoppingCart className="h-5 w-5 text-foreground" />
                 <AnimatePresence mode="wait">
                   {itemCount > 0 && (
                     <motion.div
@@ -134,9 +124,9 @@ export function Header() {
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
+                <X className="h-5 w-5 text-foreground" />
               ) : (
-                <Menu className="h-5 w-5" />
+                <Menu className="h-5 w-5 text-foreground" />
               )}
             </Button>
           </div>
@@ -146,7 +136,7 @@ export function Header() {
         {mobileMenuOpen && (
           <nav className="border-t py-6 md:hidden">
             <div className="flex flex-col space-y-4">
-              {navigation.map((item) => (
+              {mobileNavigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
