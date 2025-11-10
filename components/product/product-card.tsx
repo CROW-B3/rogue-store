@@ -33,7 +33,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 src={product.images[0]}
                 alt={product.title}
                 fill
-                className="object-cover transition-all duration-700 ease-out group-hover:scale-103"
+                className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.03]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 loading="lazy"
               />
