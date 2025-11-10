@@ -20,10 +20,7 @@ import { motion } from "framer-motion";
  * Gifts page displaying curated gift products
  */
 export default function GiftsPage() {
-  // Show premium and bestseller products as gift suggestions
-  const giftProducts = products.filter(
-    (p) => p.tags.includes("premium") || p.tags.includes("bestseller"),
-  );
+  const giftProducts = products.filter((p) => p.category === "gifts");
 
   return (
     <div>

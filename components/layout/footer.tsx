@@ -20,10 +20,10 @@ export function Footer() {
   const links = {
     shop: [
       { name: "All Products", href: "/products" },
-      { name: "Apparel", href: "/products?category=apparel" },
-      { name: "Accessories", href: "/products?category=accessories" },
-      { name: "Home", href: "/products?category=home" },
-      { name: "Tech", href: "/products?category=tech" },
+      { name: "Men", href: "/men" },
+      { name: "Women", href: "/women" },
+      { name: "Accessories", href: "/accessories" },
+      { name: "Gifts", href: "/gifts" },
     ],
     support: [
       { name: "Contact", href: "#" },
