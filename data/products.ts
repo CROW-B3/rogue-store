@@ -1,52 +1,251 @@
 import { Product, ProductVariant } from "@/lib/types";
 
 export const products: Product[] = [
-  // Apparel Products
+  // ============================================
+  // MEN'S APPAREL
+  // ============================================
+
+  // Men's Tanks
   {
-    id: "1",
-    slug: "classic-cotton-tee",
-    title: "Classic Cotton T-Shirt",
+    id: "m1",
+    slug: "mens-muscle-tank-black",
+    title: "Essential Muscle Tank",
     description:
-      "Premium 100% organic cotton t-shirt with a comfortable fit. Perfect for everyday wear, this timeless piece features reinforced seams and a soft, breathable fabric that gets better with every wash.",
+      "Classic muscle tank in premium cotton blend. Perfect for workouts or casual wear. Features a modern fit with reinforced seams and breathable fabric.",
     category: "apparel",
-    tags: ["new", "bestseller", "sustainable"],
+    gender: "men",
+    tags: ["new", "bestseller"],
+    price: 1800,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1622445275576-721325763afe?w=800&q=80",
+      "https://images.unsplash.com/photo-1622445275463-afa2ab738c34?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["S", "M", "L", "XL", "XXL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "White", "Gray", "Navy"],
+      },
+    ],
+    rating: 4.5,
+    createdAt: "2025-01-25T00:00:00Z",
+    specs: {
+      Material: "95% Cotton, 5% Elastane",
+      Fit: "Athletic Fit",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+
+  // Men's T-Shirts
+  {
+    id: "m2",
+    slug: "mens-premium-cotton-tee",
+    title: "Premium Cotton T-Shirt",
+    description:
+      "Timeless crew neck t-shirt crafted from 100% organic cotton. Soft, breathable, and built to last. The perfect everyday essential.",
+    category: "apparel",
+    gender: "men",
+    tags: ["bestseller", "sustainable"],
     price: 2500,
     currency: "LKR",
     images: [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80",
       "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=80",
-      "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&q=80",
     ],
     variants: [
-      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL", "XXL"] },
+      { id: "size", name: "Size", values: ["S", "M", "L", "XL", "XXL"] },
       {
         id: "color",
         name: "Color",
-        values: ["Black", "White", "Navy", "Gray"],
+        values: ["Black", "White", "Gray", "Navy", "Olive"],
       },
     ],
-    rating: 4.5,
-    createdAt: "2025-01-15T00:00:00Z",
+    rating: 4.7,
+    createdAt: "2025-01-24T00:00:00Z",
     specs: {
       Material: "100% Organic Cotton",
-      Fit: "Regular",
+      Fit: "Regular Fit",
       "Care Instructions": "Machine wash cold",
-      Origin: "Sri Lanka",
     },
   },
   {
-    id: "2",
-    slug: "slim-fit-jeans",
+    id: "m3",
+    slug: "mens-oversized-tee",
+    title: "Oversized Drop Shoulder Tee",
+    description:
+      "Contemporary oversized tee with dropped shoulders and extended length. Made from heavyweight cotton for a premium feel and relaxed silhouette.",
+    category: "apparel",
+    gender: "men",
+    tags: ["new", "premium"],
+    price: 3200,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&q=80",
+      "https://images.unsplash.com/photo-1622470953794-aa9c70b0fb9d?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["M", "L", "XL", "XXL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "White", "Sand", "Charcoal"],
+      },
+    ],
+    rating: 4.6,
+    createdAt: "2025-01-23T00:00:00Z",
+    specs: {
+      Material: "100% Heavyweight Cotton",
+      Weight: "240gsm",
+      Fit: "Oversized",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+
+  // Men's Shirts
+  {
+    id: "m4",
+    slug: "mens-linen-shirt-white",
+    title: "Pure Linen Button-Up Shirt",
+    description:
+      "Breathable linen shirt perfect for warm weather. Features a relaxed fit, chest pocket, and classic button-down collar. Effortlessly stylish.",
+    category: "apparel",
+    gender: "men",
+    tags: ["new", "sustainable"],
+    price: 4800,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&q=80",
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["S", "M", "L", "XL", "XXL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["White", "Light Blue", "Beige", "Sage"],
+      },
+    ],
+    rating: 4.5,
+    createdAt: "2025-01-22T00:00:00Z",
+    specs: {
+      Material: "100% Linen",
+      Fit: "Relaxed Fit",
+      "Care Instructions": "Machine wash cold, iron while damp",
+    },
+  },
+  {
+    id: "m5",
+    slug: "mens-oxford-shirt",
+    title: "Classic Oxford Button-Down",
+    description:
+      "Versatile Oxford shirt in premium cotton. Features button-down collar and tailored fit. Perfect for both casual and smart-casual occasions.",
+    category: "apparel",
+    gender: "men",
+    tags: ["bestseller"],
+    price: 4200,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=800&q=80",
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["S", "M", "L", "XL", "XXL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["White", "Light Blue", "Pink", "Navy"],
+      },
+    ],
+    rating: 4.8,
+    createdAt: "2025-01-21T00:00:00Z",
+    specs: {
+      Material: "100% Cotton Oxford",
+      Fit: "Tailored Fit",
+      "Care Instructions": "Machine wash warm, tumble dry low",
+    },
+  },
+
+  // Men's Hoodies & Jackets
+  {
+    id: "m6",
+    slug: "mens-zip-hoodie",
+    title: "Premium Zip-Up Hoodie",
+    description:
+      "Comfortable zip-up hoodie in soft cotton blend. Features kangaroo pockets, adjustable hood, and ribbed cuffs. Your new go-to layering piece.",
+    category: "apparel",
+    gender: "men",
+    tags: ["new", "bestseller"],
+    price: 5800,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80",
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["S", "M", "L", "XL", "XXL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "Gray", "Navy", "Olive"],
+      },
+    ],
+    rating: 4.7,
+    createdAt: "2025-01-20T00:00:00Z",
+    specs: {
+      Material: "80% Cotton, 20% Polyester",
+      Fit: "Regular Fit",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+  {
+    id: "m7",
+    slug: "mens-bomber-jacket",
+    title: "Classic Bomber Jacket",
+    description:
+      "Timeless bomber jacket with ribbed collar, cuffs, and hem. Features zip pockets and lightweight construction. Perfect transitional piece.",
+    category: "apparel",
+    gender: "men",
+    tags: ["premium"],
+    price: 8900,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80",
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["S", "M", "L", "XL", "XXL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "Navy", "Olive", "Burgundy"],
+      },
+    ],
+    rating: 4.6,
+    createdAt: "2025-01-19T00:00:00Z",
+    specs: {
+      Material: "Nylon with Polyester Lining",
+      Fit: "Regular Fit",
+      "Care Instructions": "Machine wash cold, hang dry",
+    },
+  },
+
+  // Men's Jeans
+  {
+    id: "m8",
+    slug: "mens-slim-fit-jeans",
     title: "Slim Fit Denim Jeans",
     description:
-      "Modern slim-fit jeans crafted from premium stretch denim. Features a contemporary cut that flatters your silhouette while providing comfort and flexibility for all-day wear.",
+      "Modern slim-fit jeans in premium stretch denim. Features a contemporary cut with five-pocket styling and comfortable flex fabric.",
     category: "apparel",
+    gender: "men",
     tags: ["bestseller"],
     price: 6500,
     currency: "LKR",
     images: [
       "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80",
-      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80",
+      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=800&q=80",
     ],
     variants: [
       {
@@ -57,53 +256,290 @@ export const products: Product[] = [
       {
         id: "color",
         name: "Color",
-        values: ["Dark Blue", "Light Blue", "Black"],
+        values: ["Dark Blue", "Light Blue", "Black", "Gray"],
       },
     ],
     rating: 4.7,
-    createdAt: "2025-01-10T00:00:00Z",
+    createdAt: "2025-01-18T00:00:00Z",
     specs: {
       Material: "98% Cotton, 2% Elastane",
-      Fit: "Slim",
+      Fit: "Slim Fit",
       Rise: "Mid Rise",
       "Care Instructions": "Machine wash cold, tumble dry low",
     },
   },
   {
-    id: "3",
-    slug: "wool-blend-coat",
-    title: "Premium Wool Blend Coat",
+    id: "m9",
+    slug: "mens-straight-jeans",
+    title: "Straight Leg Denim",
     description:
-      "Luxurious wool blend coat with a tailored silhouette. Perfect for cooler months, this sophisticated outerwear piece features premium buttons, deep pockets, and a timeless design.",
+      "Classic straight-leg jeans with a timeless fit. Made from durable denim with just the right amount of stretch for all-day comfort.",
     category: "apparel",
-    tags: ["premium", "new"],
-    price: 18500,
+    gender: "men",
+    tags: ["new"],
+    price: 6200,
     currency: "LKR",
     images: [
-      "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80",
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=80",
+      "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=800&q=80",
+      "https://images.unsplash.com/photo-1582552938357-32b906d05f80?w=800&q=80",
     ],
     variants: [
-      { id: "size", name: "Size", values: ["S", "M", "L", "XL"] },
-      { id: "color", name: "Color", values: ["Charcoal", "Camel", "Navy"] },
+      {
+        id: "size",
+        name: "Size",
+        values: ["28", "30", "32", "34", "36", "38"],
+      },
+      { id: "color", name: "Color", values: ["Indigo", "Black", "Light Wash"] },
     ],
-    rating: 4.8,
-    createdAt: "2025-01-20T00:00:00Z",
+    rating: 4.5,
+    createdAt: "2025-01-17T00:00:00Z",
     specs: {
-      Material: "70% Wool, 30% Polyester",
-      Fit: "Tailored",
-      "Care Instructions": "Dry clean only",
-      Lining: "Satin",
+      Material: "99% Cotton, 1% Elastane",
+      Fit: "Straight Leg",
+      Rise: "Regular Rise",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+
+  // Men's Shorts
+  {
+    id: "m10",
+    slug: "mens-chino-shorts",
+    title: "Classic Chino Shorts",
+    description:
+      "Versatile chino shorts in lightweight cotton twill. Features a comfortable fit with four-pocket styling. Perfect for warm weather.",
+    category: "apparel",
+    gender: "men",
+    tags: ["bestseller"],
+    price: 3800,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["28", "30", "32", "34", "36"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Khaki", "Navy", "Olive", "Black"],
+      },
+    ],
+    rating: 4.4,
+    createdAt: "2025-01-16T00:00:00Z",
+    specs: {
+      Material: "100% Cotton Twill",
+      Length: "9 inch inseam",
+      "Care Instructions": "Machine wash warm",
+    },
+  },
+
+  // Men's Joggers & Pants
+  {
+    id: "m11",
+    slug: "mens-tech-joggers",
+    title: "Technical Joggers",
+    description:
+      "Modern joggers in moisture-wicking fabric. Features tapered leg, zip pockets, and elastic waistband with drawstring. Perfect for active lifestyle.",
+    category: "apparel",
+    gender: "men",
+    tags: ["new"],
+    price: 4500,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&q=80",
+      "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["S", "M", "L", "XL", "XXL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "Gray", "Navy", "Charcoal"],
+      },
+    ],
+    rating: 4.6,
+    createdAt: "2025-01-15T00:00:00Z",
+    specs: {
+      Material: "Polyester blend with moisture-wicking",
+      Fit: "Tapered",
+      "Care Instructions": "Machine wash cold",
     },
   },
   {
-    id: "4",
-    slug: "linen-summer-dress",
-    title: "Linen Summer Dress",
+    id: "m12",
+    slug: "mens-cargo-pants",
+    title: "Utility Cargo Pants",
     description:
-      "Breathable linen dress perfect for warm weather. Features a relaxed fit, adjustable straps, and a flattering midi length. The lightweight fabric keeps you cool and comfortable all day.",
+      "Functional cargo pants with multiple pockets. Features a relaxed fit, adjustable waist, and durable fabric. Utility meets style.",
     category: "apparel",
-    tags: ["sustainable", "new"],
+    gender: "men",
+    tags: ["new", "bestseller"],
+    price: 5500,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80",
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["S", "M", "L", "XL", "XXL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "Olive", "Khaki", "Navy"],
+      },
+    ],
+    rating: 4.5,
+    createdAt: "2025-01-14T00:00:00Z",
+    specs: {
+      Material: "Cotton Twill",
+      Pockets: "6 pockets total",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+
+  // ============================================
+  // WOMEN'S APPAREL
+  // ============================================
+
+  // Women's Tanks & Tops
+  {
+    id: "w1",
+    slug: "womens-ribbed-tank",
+    title: "Ribbed Cotton Tank Top",
+    description:
+      "Classic ribbed tank in soft cotton blend. Features a fitted silhouette and versatile design. Perfect for layering or wearing solo.",
+    category: "apparel",
+    gender: "women",
+    tags: ["bestseller"],
+    price: 1800,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=800&q=80",
+      "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["White", "Black", "Gray", "Beige"],
+      },
+    ],
+    rating: 4.6,
+    createdAt: "2025-01-25T00:00:00Z",
+    specs: {
+      Material: "95% Cotton, 5% Elastane",
+      Fit: "Fitted",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+  {
+    id: "w2",
+    slug: "womens-silk-cami",
+    title: "Silk Camisole Top",
+    description:
+      "Luxurious silk camisole with adjustable straps. Features a flattering V-neck and delicate hem. Elevate your basics collection.",
+    category: "apparel",
+    gender: "women",
+    tags: ["premium", "new"],
+    price: 4500,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=800&q=80",
+      "https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "White", "Champagne", "Sage"],
+      },
+    ],
+    rating: 4.8,
+    createdAt: "2025-01-24T00:00:00Z",
+    specs: {
+      Material: "100% Silk",
+      "Care Instructions": "Dry clean or hand wash cold",
+      Lining: "None",
+    },
+  },
+
+  // Women's T-Shirts
+  {
+    id: "w3",
+    slug: "womens-boyfriend-tee",
+    title: "Boyfriend Fit T-Shirt",
+    description:
+      "Relaxed boyfriend tee in soft cotton. Features a loose fit, crew neck, and comfortable drape. Effortlessly cool everyday staple.",
+    category: "apparel",
+    gender: "women",
+    tags: ["bestseller", "new"],
+    price: 2400,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80",
+      "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["White", "Black", "Gray", "Beige"],
+      },
+    ],
+    rating: 4.5,
+    createdAt: "2025-01-23T00:00:00Z",
+    specs: {
+      Material: "100% Cotton",
+      Fit: "Relaxed/Boyfriend",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+  {
+    id: "w4",
+    slug: "womens-fitted-tee",
+    title: "Fitted Crew Neck Tee",
+    description:
+      "Classic fitted t-shirt with a flattering silhouette. Made from premium cotton with a soft hand feel. Your wardrobe essential.",
+    category: "apparel",
+    gender: "women",
+    tags: ["bestseller"],
+    price: 2200,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1627225924765-552d49cf47ad?w=800&q=80",
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "White", "Navy", "Burgundy"],
+      },
+    ],
+    rating: 4.7,
+    createdAt: "2025-01-22T00:00:00Z",
+    specs: {
+      Material: "100% Cotton",
+      Fit: "Fitted",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+
+  // Women's Dresses
+  {
+    id: "w5",
+    slug: "womens-linen-dress",
+    title: "Linen Midi Dress",
+    description:
+      "Breathable linen dress in a flattering midi length. Features adjustable straps and relaxed fit. Perfect for warm weather elegance.",
+    category: "apparel",
+    gender: "women",
+    tags: ["new", "sustainable"],
     price: 5500,
     currency: "LKR",
     images: [
@@ -118,49 +554,188 @@ export const products: Product[] = [
         values: ["White", "Beige", "Terracotta", "Sage"],
       },
     ],
-    rating: 4.6,
-    createdAt: "2025-01-18T00:00:00Z",
+    rating: 4.8,
+    createdAt: "2025-01-21T00:00:00Z",
     specs: {
       Material: "100% Linen",
       Length: "Midi",
       "Care Instructions": "Hand wash cold, line dry",
-      Origin: "Handcrafted",
     },
   },
   {
-    id: "5",
-    slug: "leather-jacket",
-    title: "Genuine Leather Jacket",
+    id: "w6",
+    slug: "womens-slip-dress",
+    title: "Silk Slip Dress",
     description:
-      "Premium genuine leather jacket with classic biker styling. Features asymmetric zip closure, multiple pockets, and quilted shoulder detailing. A wardrobe staple that ages beautifully.",
+      "Elegant silk slip dress with bias cut. Features delicate straps and a fluid drape. Versatile piece for day to night styling.",
     category: "apparel",
-    tags: ["premium", "limited-edition"],
-    price: 28500,
+    gender: "women",
+    tags: ["premium", "bestseller"],
+    price: 7800,
     currency: "LKR",
     images: [
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80",
-      "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=800&q=80",
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&q=80",
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80",
     ],
     variants: [
-      { id: "size", name: "Size", values: ["S", "M", "L", "XL"] },
-      { id: "color", name: "Color", values: ["Black", "Brown"] },
+      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "Champagne", "Sage", "Burgundy"],
+      },
     ],
     rating: 4.9,
-    createdAt: "2025-01-22T00:00:00Z",
+    createdAt: "2025-01-20T00:00:00Z",
     specs: {
-      Material: "100% Genuine Leather",
-      Lining: "Polyester",
-      "Care Instructions": "Professional leather clean",
-      Hardware: "YKK Zippers",
+      Material: "100% Silk",
+      Length: "Midi",
+      "Care Instructions": "Dry clean",
+    },
+  },
+
+  // Women's Bottoms
+  {
+    id: "w7",
+    slug: "womens-high-waist-jeans",
+    title: "High-Waist Skinny Jeans",
+    description:
+      "Flattering high-waist skinny jeans in stretch denim. Features a comfortable waistband and sleek silhouette. Your new favorite denim.",
+    category: "apparel",
+    gender: "women",
+    tags: ["bestseller"],
+    price: 6200,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800&q=80",
+      "https://images.unsplash.com/photo-1604176354204-9268737828e4?w=800&q=80",
+    ],
+    variants: [
+      {
+        id: "size",
+        name: "Size",
+        values: ["24", "26", "28", "30", "32", "34"],
+      },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Dark Blue", "Black", "Light Wash"],
+      },
+    ],
+    rating: 4.7,
+    createdAt: "2025-01-19T00:00:00Z",
+    specs: {
+      Material: "98% Cotton, 2% Elastane",
+      Fit: "Skinny",
+      Rise: "High Rise",
+      "Care Instructions": "Machine wash cold",
     },
   },
   {
-    id: "6",
-    slug: "cashmere-sweater",
+    id: "w8",
+    slug: "womens-wide-leg-pants",
+    title: "Wide Leg Trousers",
+    description:
+      "Sophisticated wide-leg trousers with a relaxed fit. Features a flattering high waist and flowing silhouette. Effortlessly elegant.",
+    category: "apparel",
+    gender: "women",
+    tags: ["new", "premium"],
+    price: 5800,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&q=80",
+      "https://images.unsplash.com/photo-1598522325074-042db73aa4e6?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "Beige", "Navy", "Charcoal"],
+      },
+    ],
+    rating: 4.6,
+    createdAt: "2025-01-18T00:00:00Z",
+    specs: {
+      Material: "Polyester blend",
+      Fit: "Wide Leg",
+      "Care Instructions": "Machine wash cold, hang dry",
+    },
+  },
+
+  // Women's Activewear
+  {
+    id: "w9",
+    slug: "womens-sports-bra",
+    title: "High-Support Sports Bra",
+    description:
+      "Performance sports bra with high support and moisture-wicking fabric. Features adjustable straps and breathable mesh panels.",
+    category: "apparel",
+    gender: "women",
+    tags: ["new"],
+    price: 3200,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
+      "https://images.unsplash.com/photo-1596131397077-f36fa1619d1f?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "White", "Navy", "Sage"],
+      },
+    ],
+    rating: 4.5,
+    createdAt: "2025-01-17T00:00:00Z",
+    specs: {
+      Material: "Polyester with moisture-wicking",
+      Support: "High",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+  {
+    id: "w10",
+    slug: "womens-leggings",
+    title: "High-Waist Performance Leggings",
+    description:
+      "Premium leggings with four-way stretch and compression support. Features a high waistband and squat-proof fabric. Gym to street ready.",
+    category: "apparel",
+    gender: "women",
+    tags: ["bestseller", "new"],
+    price: 4200,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&q=80",
+      "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Black", "Navy", "Gray", "Burgundy"],
+      },
+    ],
+    rating: 4.8,
+    createdAt: "2025-01-16T00:00:00Z",
+    specs: {
+      Material: "Nylon/Spandex blend",
+      Features: "Four-way stretch, moisture-wicking",
+      "Care Instructions": "Machine wash cold",
+    },
+  },
+
+  // Women's Outerwear
+  {
+    id: "w11",
+    slug: "womens-cashmere-sweater",
     title: "Pure Cashmere Sweater",
     description:
-      "Luxuriously soft cashmere sweater with ribbed detailing. This elegant piece offers unmatched warmth and comfort while maintaining a sophisticated, refined look.",
+      "Luxuriously soft cashmere sweater with ribbed detailing. Offers unmatched warmth and comfort while maintaining a sophisticated look.",
     category: "apparel",
+    gender: "women",
     tags: ["premium", "bestseller"],
     price: 12500,
     currency: "LKR",
@@ -176,23 +751,53 @@ export const products: Product[] = [
         values: ["Cream", "Gray", "Navy", "Burgundy"],
       },
     ],
-    rating: 4.8,
-    createdAt: "2025-01-12T00:00:00Z",
+    rating: 4.9,
+    createdAt: "2025-01-15T00:00:00Z",
     specs: {
       Material: "100% Cashmere",
       Fit: "Regular",
       "Care Instructions": "Hand wash cold, lay flat to dry",
-      Weight: "Lightweight",
+    },
+  },
+  {
+    id: "w12",
+    slug: "womens-trench-coat",
+    title: "Classic Trench Coat",
+    description:
+      "Timeless trench coat with belted waist. Features double-breasted buttons, storm flap, and water-resistant fabric. A wardrobe investment piece.",
+    category: "apparel",
+    gender: "women",
+    tags: ["premium", "new"],
+    price: 16800,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80",
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["XS", "S", "M", "L", "XL"] },
+      { id: "color", name: "Color", values: ["Beige", "Black", "Navy"] },
+    ],
+    rating: 4.8,
+    createdAt: "2025-01-14T00:00:00Z",
+    specs: {
+      Material: "Water-resistant cotton blend",
+      Fit: "Classic",
+      "Care Instructions": "Dry clean only",
     },
   },
 
-  // Accessories Products
+  // ============================================
+  // ACCESSORIES
+  // ============================================
+
+  // Bags
   {
-    id: "7",
+    id: "a1",
     slug: "leather-tote-bag",
     title: "Genuine Leather Tote Bag",
     description:
-      "Spacious leather tote bag perfect for work or travel. Features reinforced handles, interior pockets, and a secure zip closure. The full-grain leather develops a beautiful patina over time.",
+      "Spacious leather tote bag perfect for work or travel. Features reinforced handles, interior pockets, and secure zip closure.",
     category: "accessories",
     tags: ["bestseller", "premium"],
     price: 9500,
@@ -205,20 +810,45 @@ export const products: Product[] = [
       { id: "color", name: "Color", values: ["Tan", "Black", "Cognac"] },
     ],
     rating: 4.7,
-    createdAt: "2025-01-14T00:00:00Z",
+    createdAt: "2025-01-13T00:00:00Z",
     specs: {
       Material: "Full-Grain Leather",
       Dimensions: "38cm x 30cm x 12cm",
-      "Strap Drop": "25cm",
-      Closure: "Zip",
+      "Care Instructions": "Leather conditioner recommended",
     },
   },
   {
-    id: "8",
+    id: "a2",
+    slug: "crossbody-bag",
+    title: "Canvas Crossbody Bag",
+    description:
+      "Practical canvas crossbody bag with leather trim. Perfect for everyday use with multiple compartments and adjustable strap.",
+    category: "accessories",
+    tags: ["new", "sustainable"],
+    price: 3800,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
+      "https://images.unsplash.com/photo-1590136905004-54f54c2228f5?w=800&q=80",
+    ],
+    variants: [
+      { id: "color", name: "Color", values: ["Olive", "Navy", "Black", "Tan"] },
+    ],
+    rating: 4.5,
+    createdAt: "2025-01-12T00:00:00Z",
+    specs: {
+      Material: "Canvas with Leather Trim",
+      Dimensions: "24cm x 18cm x 8cm",
+    },
+  },
+
+  // Watches
+  {
+    id: "a3",
     slug: "minimalist-watch",
     title: "Minimalist Steel Watch",
     description:
-      "Elegant minimalist watch with a clean dial and premium stainless steel case. Features sapphire crystal glass, Japanese quartz movement, and genuine leather strap.",
+      "Elegant minimalist watch with clean dial and premium stainless steel case. Features sapphire crystal glass and Japanese quartz movement.",
     category: "accessories",
     tags: ["new", "premium"],
     price: 8500,
@@ -232,25 +862,138 @@ export const products: Product[] = [
       {
         id: "strap",
         name: "Strap",
-        values: ["Black Leather", "Brown Leather", "Steel Mesh"],
+        values: ["Black Leather", "Brown Leather", "Steel"],
       },
     ],
-    rating: 4.6,
-    createdAt: "2025-01-19T00:00:00Z",
+    rating: 4.7,
+    createdAt: "2025-01-11T00:00:00Z",
     specs: {
       "Case Material": "Stainless Steel",
       "Case Diameter": "40mm",
       Movement: "Japanese Quartz",
       "Water Resistance": "3ATM",
-      Glass: "Sapphire Crystal",
+    },
+  },
+
+  // Sunglasses
+  {
+    id: "a4",
+    slug: "aviator-sunglasses",
+    title: "Classic Aviator Sunglasses",
+    description:
+      "Timeless aviator sunglasses with UV400 protection. Features polarized lenses and metal frame with adjustable nose pads.",
+    category: "accessories",
+    tags: ["bestseller"],
+    price: 3500,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&q=80",
+      "https://images.unsplash.com/photo-1577803645773-f96470509666?w=800&q=80",
+    ],
+    variants: [
+      { id: "color", name: "Frame", values: ["Gold", "Silver", "Black"] },
+      { id: "lens", name: "Lens", values: ["Gray", "Brown", "Green"] },
+    ],
+    rating: 4.6,
+    createdAt: "2025-01-10T00:00:00Z",
+    specs: {
+      "UV Protection": "UV400",
+      "Lens Type": "Polarized",
+      "Frame Material": "Metal Alloy",
+    },
+  },
+
+  // Wallets
+  {
+    id: "a5",
+    slug: "leather-wallet",
+    title: "Slim Leather Wallet",
+    description:
+      "Minimalist leather wallet with RFID protection. Compact design holds up to 8 cards plus cash. Perfect for those who travel light.",
+    category: "accessories",
+    tags: ["bestseller", "new"],
+    price: 2800,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
+      "https://images.unsplash.com/photo-1606011334315-025e4baab810?w=800&q=80",
+    ],
+    variants: [
+      { id: "color", name: "Color", values: ["Black", "Brown", "Navy"] },
+    ],
+    rating: 4.5,
+    createdAt: "2025-01-09T00:00:00Z",
+    specs: {
+      Material: "Full-Grain Leather",
+      "Card Slots": "8",
+      "RFID Protection": "Yes",
+      Dimensions: "11cm x 8cm x 1cm",
+    },
+  },
+
+  // Jewelry
+  {
+    id: "a6",
+    slug: "silver-necklace",
+    title: "Sterling Silver Chain Necklace",
+    description:
+      "Delicate sterling silver chain necklace. Features a minimalist design that layers beautifully. Everyday luxury piece.",
+    category: "accessories",
+    tags: ["new", "premium"],
+    price: 4200,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80",
+      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80",
+    ],
+    variants: [
+      {
+        id: "length",
+        name: "Length",
+        values: ["16 inch", "18 inch", "20 inch"],
+      },
+    ],
+    rating: 4.7,
+    createdAt: "2025-01-08T00:00:00Z",
+    specs: {
+      Material: "925 Sterling Silver",
+      Clasp: "Spring Ring",
+      "Care Instructions": "Polish with soft cloth",
     },
   },
   {
-    id: "9",
+    id: "a7",
+    slug: "gold-hoop-earrings",
+    title: "Gold-Plated Hoop Earrings",
+    description:
+      "Classic hoop earrings in gold-plated brass. Features a lightweight design and secure clasp. Timeless accessory for any occasion.",
+    category: "accessories",
+    tags: ["bestseller"],
+    price: 2500,
+    currency: "LKR",
+    images: [
+      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80",
+      "https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?w=800&q=80",
+    ],
+    variants: [
+      { id: "size", name: "Size", values: ["Small", "Medium", "Large"] },
+    ],
+    rating: 4.6,
+    createdAt: "2025-01-07T00:00:00Z",
+    specs: {
+      Material: "Gold-Plated Brass",
+      Closure: "Hinged Clasp",
+      "Care Instructions": "Avoid water and perfume",
+    },
+  },
+
+  // Silk Scarf
+  {
+    id: "a8",
     slug: "silk-scarf",
     title: "Pure Silk Scarf",
     description:
-      "Luxurious hand-rolled silk scarf with vibrant prints. Made from 100% mulberry silk, this versatile accessory adds elegance to any outfit.",
+      "Luxurious hand-rolled silk scarf with vibrant prints. Made from 100% mulberry silk. Versatile accessory for any outfit.",
     category: "accessories",
     tags: ["premium", "sustainable"],
     price: 4500,
@@ -263,80 +1006,31 @@ export const products: Product[] = [
       {
         id: "pattern",
         name: "Pattern",
-        values: ["Floral", "Geometric", "Abstract", "Classic"],
+        values: ["Floral", "Geometric", "Abstract"],
       },
     ],
-    rating: 4.5,
-    createdAt: "2025-01-16T00:00:00Z",
+    rating: 4.8,
+    createdAt: "2025-01-06T00:00:00Z",
     specs: {
       Material: "100% Mulberry Silk",
       Dimensions: "90cm x 90cm",
       "Care Instructions": "Dry clean or hand wash cold",
-      Finish: "Hand-rolled edges",
     },
   },
+
+  // ============================================
+  // GIFTS CATEGORY (Premium & Gift-Worthy Items)
+  // ============================================
+
   {
-    id: "10",
-    slug: "sunglasses-aviator",
-    title: "Classic Aviator Sunglasses",
+    id: "g1",
+    slug: "gift-set-leather",
+    title: "Premium Leather Gift Set",
     description:
-      "Timeless aviator sunglasses with UV400 protection. Features polarized lenses, metal frame, and adjustable nose pads for a comfortable fit.",
-    category: "accessories",
-    tags: ["bestseller"],
-    price: 3500,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&q=80",
-      "https://images.unsplash.com/photo-1577803645773-f96470509666?w=800&q=80",
-    ],
-    variants: [
-      { id: "color", name: "Frame Color", values: ["Gold", "Silver", "Black"] },
-      { id: "lens", name: "Lens", values: ["Gray", "Brown", "Green"] },
-    ],
-    rating: 4.4,
-    createdAt: "2025-01-11T00:00:00Z",
-    specs: {
-      "UV Protection": "UV400",
-      "Lens Type": "Polarized",
-      "Frame Material": "Metal Alloy",
-      "Lens Width": "58mm",
-    },
-  },
-  {
-    id: "11",
-    slug: "crossbody-bag",
-    title: "Canvas Crossbody Bag",
-    description:
-      "Practical canvas crossbody bag with leather trim. Perfect for everyday use, featuring multiple compartments and an adjustable strap.",
-    category: "accessories",
-    tags: ["new", "sustainable"],
-    price: 3800,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
-      "https://images.unsplash.com/photo-1590136905004-54f54c2228f5?w=800&q=80",
-    ],
-    variants: [
-      { id: "color", name: "Color", values: ["Olive", "Navy", "Black", "Tan"] },
-    ],
-    rating: 4.3,
-    createdAt: "2025-01-17T00:00:00Z",
-    specs: {
-      Material: "Canvas with Leather Trim",
-      Dimensions: "24cm x 18cm x 8cm",
-      Strap: "Adjustable",
-      Pockets: "3 interior, 1 exterior",
-    },
-  },
-  {
-    id: "12",
-    slug: "wallet-leather",
-    title: "Slim Leather Wallet",
-    description:
-      "Minimalist leather wallet with RFID protection. Compact design holds up to 8 cards plus cash, perfect for those who prefer to travel light.",
-    category: "accessories",
-    tags: ["bestseller", "new"],
-    price: 2800,
+      "Curated gift set featuring a leather wallet and cardholder in premium packaging. Perfect gift for any occasion.",
+    category: "gifts",
+    tags: ["premium", "bestseller"],
+    price: 8500,
     currency: "LKR",
     images: [
       "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
@@ -345,363 +1039,41 @@ export const products: Product[] = [
     variants: [
       { id: "color", name: "Color", values: ["Black", "Brown", "Navy"] },
     ],
-    rating: 4.6,
-    createdAt: "2025-01-21T00:00:00Z",
+    rating: 4.9,
+    createdAt: "2025-01-05T00:00:00Z",
     specs: {
+      Includes: "Wallet + Cardholder",
       Material: "Full-Grain Leather",
-      "Card Slots": "8",
-      "RFID Protection": "Yes",
-      Dimensions: "11cm x 8cm x 1cm",
-    },
-  },
-
-  // Home Products
-  {
-    id: "13",
-    slug: "ceramic-vase",
-    title: "Handcrafted Ceramic Vase",
-    description:
-      "Beautiful handcrafted ceramic vase with organic shape and matte finish. Each piece is unique, featuring subtle variations that add character.",
-    category: "home",
-    tags: ["sustainable", "premium"],
-    price: 4200,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=800&q=80",
-      "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&q=80",
-    ],
-    variants: [
-      {
-        id: "color",
-        name: "Color",
-        values: ["White", "Terracotta", "Sage", "Charcoal"],
-      },
-      { id: "size", name: "Size", values: ["Small", "Medium", "Large"] },
-    ],
-    rating: 4.7,
-    createdAt: "2025-01-13T00:00:00Z",
-    specs: {
-      Material: "Ceramic",
-      Finish: "Matte",
-      "Care Instructions": "Hand wash",
-      "Made In": "Sri Lanka",
+      Packaging: "Premium Gift Box",
     },
   },
   {
-    id: "14",
-    slug: "throw-blanket",
-    title: "Chunky Knit Throw Blanket",
+    id: "g2",
+    slug: "gift-cashmere-set",
+    title: "Cashmere Scarf & Beanie Set",
     description:
-      "Cozy chunky knit throw blanket made from soft cotton yarn. Perfect for adding warmth and texture to your living space.",
-    category: "home",
-    tags: ["bestseller", "sustainable"],
-    price: 7500,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1614856917121-c0ae9c90738e?w=800&q=80",
-      "https://images.unsplash.com/photo-1631048331259-cee0a7a87333?w=800&q=80",
-    ],
-    variants: [
-      {
-        id: "color",
-        name: "Color",
-        values: ["Cream", "Gray", "Dusty Pink", "Navy"],
-      },
-    ],
-    rating: 4.8,
-    createdAt: "2025-01-09T00:00:00Z",
-    specs: {
-      Material: "100% Cotton",
-      Dimensions: "130cm x 170cm",
-      "Care Instructions": "Hand wash cold, lay flat to dry",
-      Weight: "1.5kg",
-    },
-  },
-  {
-    id: "15",
-    slug: "table-lamp",
-    title: "Modern Table Lamp",
-    description:
-      "Sleek modern table lamp with adjustable arm and touch dimmer. Features energy-efficient LED technology and a stylish minimalist design.",
-    category: "home",
-    tags: ["new"],
-    price: 6800,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80",
-      "https://images.unsplash.com/photo-1534105615012-ec4f4c6d44e4?w=800&q=80",
-    ],
-    variants: [
-      { id: "color", name: "Color", values: ["Black", "White", "Brass"] },
-    ],
-    rating: 4.5,
-    createdAt: "2025-01-15T00:00:00Z",
-    specs: {
-      "Light Source": "LED",
-      Wattage: "10W",
-      "Color Temperature": "3000K Warm White",
-      Dimmer: "Touch Control",
-    },
-  },
-  {
-    id: "16",
-    slug: "wall-mirror",
-    title: "Round Wall Mirror",
-    description:
-      "Elegant round wall mirror with brass frame. Perfect for entryways, bedrooms, or bathrooms. The clean design complements any decor style.",
-    category: "home",
-    tags: ["premium"],
-    price: 8900,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80",
-      "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=800&q=80",
-    ],
-    variants: [
-      { id: "size", name: "Size", values: ["60cm", "80cm", "100cm"] },
-      { id: "frame", name: "Frame", values: ["Brass", "Black", "White"] },
-    ],
-    rating: 4.6,
-    createdAt: "2025-01-10T00:00:00Z",
-    specs: {
-      Material: "Glass with Metal Frame",
-      Thickness: "5mm",
-      Mounting: "Wall-mounted",
-      Includes: "Hanging hardware",
-    },
-  },
-  {
-    id: "17",
-    slug: "cushion-covers",
-    title: "Linen Cushion Covers Set",
-    description:
-      "Set of premium linen cushion covers with envelope closure. Natural, breathable fabric that adds texture and comfort to any room.",
-    category: "home",
-    tags: ["sustainable", "bestseller"],
-    price: 3200,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
-      "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800&q=80",
-    ],
-    variants: [
-      {
-        id: "color",
-        name: "Color",
-        values: ["Natural", "Stone", "Terracotta", "Sage"],
-      },
-      {
-        id: "size",
-        name: "Size",
-        values: ["45cm x 45cm", "50cm x 50cm", "60cm x 40cm"],
-      },
-    ],
-    rating: 4.4,
-    createdAt: "2025-01-08T00:00:00Z",
-    specs: {
-      Material: "100% Linen",
-      Quantity: "Set of 2",
-      Closure: "Envelope",
-      "Care Instructions": "Machine wash cold",
-    },
-  },
-  {
-    id: "18",
-    slug: "wooden-tray",
-    title: "Acacia Wood Serving Tray",
-    description:
-      "Beautiful serving tray handcrafted from sustainable acacia wood. Features handles for easy carrying and a food-safe finish.",
-    category: "home",
-    tags: ["sustainable", "premium"],
-    price: 4500,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1615719413546-198b25453f85?w=800&q=80",
-      "https://images.unsplash.com/photo-1595429927043-8d74c3502491?w=800&q=80",
-    ],
-    variants: [
-      { id: "size", name: "Size", values: ["Small", "Medium", "Large"] },
-    ],
-    rating: 4.7,
-    createdAt: "2025-01-12T00:00:00Z",
-    specs: {
-      Material: "Acacia Wood",
-      Finish: "Food-safe Oil",
-      "Care Instructions": "Hand wash, oil occasionally",
-      "Made In": "Handcrafted",
-    },
-  },
-
-  // Tech Products
-  {
-    id: "19",
-    slug: "wireless-earbuds",
-    title: "Premium Wireless Earbuds",
-    description:
-      "High-fidelity wireless earbuds with active noise cancellation. Features 30-hour battery life, IPX5 water resistance, and premium sound quality.",
-    category: "tech",
-    tags: ["new", "bestseller"],
-    price: 15500,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&q=80",
-      "https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=800&q=80",
-    ],
-    variants: [
-      { id: "color", name: "Color", values: ["Black", "White", "Navy"] },
-    ],
-    rating: 4.6,
-    createdAt: "2025-01-20T00:00:00Z",
-    specs: {
-      Battery: "30 hours total",
-      Connectivity: "Bluetooth 5.3",
-      "Water Resistance": "IPX5",
-      "Noise Cancellation": "Active ANC",
-      "Driver Size": "10mm",
-    },
-  },
-  {
-    id: "20",
-    slug: "laptop-sleeve",
-    title: "Leather Laptop Sleeve",
-    description:
-      "Premium leather laptop sleeve with soft interior lining. Slim profile design with magnetic closure and additional pocket for accessories.",
-    category: "tech",
-    tags: ["premium"],
-    price: 5800,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&q=80",
-      "https://images.unsplash.com/photo-1624948464449-e654b8937c5e?w=800&q=80",
-    ],
-    variants: [
-      {
-        id: "size",
-        name: "Size",
-        values: ["13 inch", "14 inch", "15 inch", "16 inch"],
-      },
-      { id: "color", name: "Color", values: ["Black", "Brown", "Tan"] },
-    ],
-    rating: 4.5,
-    createdAt: "2025-01-18T00:00:00Z",
-    specs: {
-      Material: "Full-Grain Leather",
-      Interior: "Soft Microfiber",
-      Closure: "Magnetic",
-      Pockets: "1 exterior",
-    },
-  },
-  {
-    id: "21",
-    slug: "smart-watch",
-    title: "Fitness Smart Watch",
-    description:
-      "Advanced fitness smartwatch with heart rate monitoring, GPS, and sleep tracking. Features AMOLED display and 7-day battery life.",
-    category: "tech",
-    tags: ["new", "bestseller"],
-    price: 22500,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&q=80",
-      "https://images.unsplash.com/photo-1544117519-31a4b719223d?w=800&q=80",
-    ],
-    variants: [
-      { id: "color", name: "Color", values: ["Black", "Silver", "Rose Gold"] },
-      {
-        id: "band",
-        name: "Band",
-        values: ["Sport Band", "Leather Band", "Metal Link"],
-      },
-    ],
-    rating: 4.7,
-    createdAt: "2025-01-22T00:00:00Z",
-    specs: {
-      Display: '1.4" AMOLED',
-      Battery: "7 days",
-      "Water Resistance": "5ATM",
-      Sensors: "Heart rate, GPS, Accelerometer",
-      Compatibility: "iOS & Android",
-    },
-  },
-  {
-    id: "22",
-    slug: "portable-charger",
-    title: "High-Capacity Portable Charger",
-    description:
-      "20000mAh portable charger with fast charging and multiple ports. Compact design with LED battery indicator and premium aluminum body.",
-    category: "tech",
-    tags: ["bestseller"],
-    price: 4800,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=800&q=80",
-      "https://images.unsplash.com/photo-1624823183493-ed5832f48f18?w=800&q=80",
-    ],
-    variants: [
-      { id: "color", name: "Color", values: ["Black", "Silver", "Blue"] },
-    ],
-    rating: 4.4,
-    createdAt: "2025-01-16T00:00:00Z",
-    specs: {
-      Capacity: "20000mAh",
-      Output: "USB-C PD 20W",
-      Ports: "2x USB-A, 1x USB-C",
-      "Charge Time": "6-8 hours",
-      Weight: "400g",
-    },
-  },
-  {
-    id: "23",
-    slug: "phone-stand",
-    title: "Aluminum Phone Stand",
-    description:
-      "Sleek aluminum phone stand with adjustable viewing angle. Compatible with all smartphones and features anti-slip silicone pads.",
-    category: "tech",
-    tags: ["new"],
-    price: 2200,
-    currency: "LKR",
-    images: [
-      "https://images.unsplash.com/photo-1633181344136-bfb00f6f0a68?w=800&q=80",
-      "https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?w=800&q=80",
-    ],
-    variants: [
-      { id: "color", name: "Color", values: ["Silver", "Space Gray", "Gold"] },
-    ],
-    rating: 4.3,
-    createdAt: "2025-01-14T00:00:00Z",
-    specs: {
-      Material: "Aluminum Alloy",
-      Adjustability: "Multi-angle",
-      Compatibility: "Universal",
-      "Non-slip": "Silicone pads",
-    },
-  },
-  {
-    id: "24",
-    slug: "wireless-keyboard",
-    title: "Mechanical Wireless Keyboard",
-    description:
-      "Premium mechanical keyboard with tactile switches and RGB backlighting. Features 75% compact layout and connects via Bluetooth or USB-C.",
-    category: "tech",
+      "Luxurious cashmere scarf and beanie gift set. Beautifully packaged for gifting. The ultimate in comfort and style.",
+    category: "gifts",
     tags: ["premium", "new"],
-    price: 12800,
+    price: 14500,
     currency: "LKR",
     images: [
-      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&q=80",
-      "https://images.unsplash.com/photo-1595225476474-87563907a212?w=800&q=80",
+      "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80",
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80",
     ],
     variants: [
-      { id: "switch", name: "Switch Type", values: ["Red", "Blue", "Brown"] },
-      { id: "color", name: "Color", values: ["Black", "White"] },
+      {
+        id: "color",
+        name: "Color",
+        values: ["Gray", "Navy", "Burgundy", "Cream"],
+      },
     ],
     rating: 4.8,
-    createdAt: "2025-01-21T00:00:00Z",
+    createdAt: "2025-01-04T00:00:00Z",
     specs: {
-      Layout: "75% Compact",
-      Switches: "Hot-swappable Mechanical",
-      Connectivity: "Bluetooth 5.1 & USB-C",
-      Battery: "2000mAh rechargeable",
-      Backlighting: "RGB per-key",
+      Material: "100% Cashmere",
+      Includes: "Scarf + Beanie",
+      Packaging: "Premium Gift Box with Ribbon",
     },
   },
 ];

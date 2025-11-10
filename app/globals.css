@@ -101,6 +101,19 @@
       background-position: 1000px 0;
     }
   }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-3deg);
+    }
+    75% {
+      transform: rotate(3deg);
+    }
+  }
 }
 
 @layer base {
@@ -283,6 +296,15 @@
   ::-moz-selection {
     background-color: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
+  }
+
+  /* Wiggle animation utility */
+  .wiggle {
+    animation: wiggle 0.4s ease-in-out;
+  }
+
+  .wiggle-on-click:active {
+    animation: wiggle 0.4s ease-in-out;
   }
 }
 

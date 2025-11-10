@@ -24,6 +24,7 @@ export interface Product {
   title: string;
   description: string;
   category: string;
+  gender?: "men" | "women" | "unisex";
   tags: string[];
   price: number;
   currency: "LKR";
