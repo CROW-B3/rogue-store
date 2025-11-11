@@ -10,6 +10,7 @@ import { Section } from "@/components/layout/section";
 import { ProductSection } from "@/components/product/product-section";
 import { products } from "@/data/products";
 import { categories } from "@/data/categories";
+import { heroImages } from "@/constants/hero";
 import { ArrowRight, Truck, Shield, RotateCcw } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
@@ -32,12 +33,6 @@ export default function HomePage() {
     .slice(0, 4);
 
   const heroRef = useRef<HTMLDivElement>(null);
-
-  // Hero images array
-  const heroImages = [
-    "https://9cndgv3upu.ufs.sh/f/qeGePzbFA4li6yOARSh47FwkugZemErf03UAahvo5HtIYVW1",
-    "https://9cndgv3upu.ufs.sh/f/qeGePzbFA4liVKD020R8qcaQ0Ed9TouUyY1brwIH3pgk2BDP",
-  ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Auto-swap images every 5 seconds
