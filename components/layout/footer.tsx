@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./container";
 import { Facebook, Instagram, Twitter, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 /**
  * Render the site footer with brand, a newsletter signup form, three categorized link groups (Shop, Support, Company), and social icon links.
@@ -19,10 +21,10 @@ export function Footer() {
   const links = {
     shop: [
       { name: "All Products", href: "/products" },
-      { name: "Apparel", href: "/products?category=apparel" },
-      { name: "Accessories", href: "/products?category=accessories" },
-      { name: "Home", href: "/products?category=home" },
-      { name: "Tech", href: "/products?category=tech" },
+      { name: "Men", href: "/men" },
+      { name: "Women", href: "/women" },
+      { name: "Accessories", href: "/accessories" },
+      { name: "Gifts", href: "/gifts" },
     ],
     support: [
       { name: "Contact", href: "#" },
@@ -50,13 +52,14 @@ export function Footer() {
         <div className="grid gap-8 py-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand & Newsletter */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
-                <span className="text-lg font-bold text-primary-foreground">
-                  R
-                </span>
-              </div>
-              <span className="text-xl font-bold">Rouge Store</span>
+            <Link href="/" className="flex items-center text-foreground">
+              <Image
+                src="/logo.svg"
+                alt="Rouge Store Logo"
+                width={200}
+                height={80}
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
               Discover premium products crafted with care. Quality you can
@@ -71,11 +74,23 @@ export function Footer() {
               </p>
               <form
                 className="mt-4 flex gap-2"
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const email = formData.get("email") as string;
+                  if (email) {
+                    toast.info(
+                      "Newsletter demo - submission not yet connected to backend",
+                    );
+                    e.currentTarget.reset();
+                  }
+                }}
               >
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
+                  required
                   className="flex-1"
                   aria-label="Email for newsletter"
                 />

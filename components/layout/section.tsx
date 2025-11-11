@@ -4,6 +4,7 @@ import React from "react";
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }
 
 /**
@@ -11,10 +12,13 @@ interface SectionProps {
  *
  * @param children - Content to render inside the section
  * @param className - Additional CSS class names merged with the default padding classes
+ * @param id - Optional id attribute for anchor linking
  * @returns The rendered `<section>` element
  */
-export function Section({ children, className }: SectionProps) {
+export function Section({ children, className, id }: SectionProps) {
   return (
-    <section className={cn("py-12 md:py-16", className)}>{children}</section>
+    <section id={id} className={cn("py-12 md:py-16", className)}>
+      {children}
+    </section>
   );
 }
