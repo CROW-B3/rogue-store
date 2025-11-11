@@ -4,9 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
-import { Rating } from "@/components/ui/rating";
 import { Price } from "@/components/ui/price";
-import { motion } from "framer-motion";
 
 interface ProductCardProps {
   product: Product;
@@ -22,70 +20,53 @@ interface ProductCardProps {
  */
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+    <Link
+      href={`/products/${product.slug}`}
+      className="group block wiggle-on-click"
     >
-      <Link href={`/products/${product.slug}`} className="group block">
-        <div className="overflow-hidden rounded-lg border bg-card transition-all hover:shadow-lg">
-          {/* Image */}
-          <div className="relative aspect-square overflow-hidden bg-muted">
-            {product.images[0] ? (
+      <div className="overflow-hidden">
+        {/* Image - Borderless, Clean */}
+        <div className="relative aspect-square overflow-hidden bg-muted image-loading mb-4">
+          {product.images[0] ? (
+            <>
               <Image
                 src={product.images[0]}
                 alt={product.title}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.03]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading="lazy"
               />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center bg-muted">
-                <span className="text-muted-foreground">No image</span>
-              </div>
-            )}
-
-            {/* Badges */}
-            {product.tags.length > 0 && (
-              <div className="absolute left-2 top-2 flex flex-wrap gap-1">
-                {product.tags.slice(0, 2).map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant={
-                      tag === "new"
-                        ? "success"
-                        : tag === "bestseller"
-                          ? "warning"
-                          : "default"
-                    }
-                    className="capitalize"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Content */}
-          <div className="p-4">
-            <h3 className="font-semibold transition-colors group-hover:text-primary">
-              {product.title}
-            </h3>
-
-            <div className="mt-2 flex items-center justify-between">
-              <Price amount={product.price} className="text-lg font-bold" />
-              {product.rating && (
-                <Rating rating={product.rating} size="sm" showValue={false} />
-              )}
+              {/* Subtle overlay on hover */}
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-all duration-500" />
+            </>
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-muted image-loading">
+              <span className="text-muted-foreground text-sm">No image</span>
             </div>
+          )}
 
-            <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
-              {product.description}
-            </p>
-          </div>
+          {/* Minimal Badge - Only New */}
+          {product.tags.includes("new") && (
+            <div className="absolute left-3 top-3">
+              <Badge
+                variant="default"
+                className="bg-primary text-primary-foreground text-[10px] font-medium uppercase tracking-wider px-2 py-1"
+              >
+                New
+              </Badge>
+            </div>
+          )}
         </div>
-      </Link>
-    </motion.div>
+
+        {/* Content - Minimal Text Only */}
+        <div className="space-y-2">
+          <h3 className="text-sm uppercase tracking-wide font-medium transition-colors">
+            {product.title}
+          </h3>
+          <Price amount={product.price} className="text-base font-bold" />
+        </div>
+      </div>
+    </Link>
   );
 }

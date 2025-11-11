@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingCart, Search, Menu, X } from "lucide-react";
 import { Container } from "./container";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "./theme-toggle";
 import { useCartStore } from "@/lib/cart-store";
 import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MegaMenu } from "./mega-menu";
 
 /**
  * Render the application's responsive header with branding, navigation, and action controls.
@@ -20,80 +22,111 @@ import { useState } from "react";
 export function Header() {
   const { itemCount, toggleCart } = useCartStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartBounce, setCartBounce] = useState(false);
 
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Shop", href: "/products" },
+  // Trigger bounce animation when cart count changes
+  useEffect(() => {
+    if (itemCount > 0) {
+      setCartBounce(true);
+      const timer = setTimeout(() => setCartBounce(false), 600);
+      return () => clearTimeout(timer);
+    }
+  }, [itemCount]);
+
+  const mobileNavigation = [
+    { name: "Men", href: "/men" },
+    { name: "Women", href: "/women" },
+    { name: "Accessories", href: "/accessories" },
+    { name: "Gifts", href: "/gifts" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-[60] w-full border-b border-border/40 bg-background backdrop-blur-xl">
       <Container>
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
-              <span className="text-lg font-bold text-primary-foreground">
-                R
-              </span>
-            </div>
-            <span className="text-xl font-bold">Rouge Store</span>
+          <Link
+            href="/"
+            className="flex items-center transition-opacity hover:opacity-50 text-foreground"
+          >
+            <Image
+              src="/logo.svg"
+              alt="Rouge Store Logo"
+              width={200}
+              height={80}
+              priority
+              className="h-12 w-auto sm:h-14"
+            />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-6 md:flex">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+          {/* Desktop Mega Menu Navigation */}
+          <MegaMenu />
 
           {/* Right Actions */}
-          <div className="flex items-center gap-2">
-            <Link href="/products">
-              <Button variant="ghost" size="icon" aria-label="Search">
-                <Search className="h-5 w-5" />
-              </Button>
-            </Link>
-
-            <ThemeToggle />
-
+          <div className="flex items-center gap-1">
             <Button
               variant="ghost"
               size="icon"
-              onClick={toggleCart}
-              className="relative"
-              aria-label="Shopping cart"
+              aria-label="Search"
+              className="hover:bg-transparent text-foreground"
             >
-              <ShoppingCart className="h-5 w-5" />
-              {itemCount > 0 && (
-                <Badge
-                  data-testid="cart-badge"
-                  variant="destructive"
-                  className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full p-0 text-[10px] font-bold"
-                >
-                  {itemCount}
-                </Badge>
-              )}
+              <Search className="h-5 w-5 text-foreground" />
             </Button>
+
+            <motion.div
+              animate={
+                cartBounce
+                  ? { scale: [1, 1.2, 1], rotate: [0, -10, 10, 0] }
+                  : {}
+              }
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleCart}
+                className="relative hover:bg-transparent text-foreground"
+                aria-label="Shopping cart"
+              >
+                <ShoppingCart className="h-5 w-5 text-foreground" />
+                <AnimatePresence mode="wait">
+                  {itemCount > 0 && (
+                    <motion.div
+                      key={itemCount}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      exit={{ scale: 0 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 25,
+                      }}
+                    >
+                      <Badge
+                        data-testid="cart-badge"
+                        variant="default"
+                        className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full p-0 text-[10px] font-bold bg-primary text-primary-foreground"
+                      >
+                        {itemCount}
+                      </Badge>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </Button>
+            </motion.div>
 
             {/* Mobile menu button */}
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="md:hidden hover:bg-transparent text-foreground"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
+                <X className="h-5 w-5 text-foreground" />
               ) : (
-                <Menu className="h-5 w-5" />
+                <Menu className="h-5 w-5 text-foreground" />
               )}
             </Button>
           </div>
@@ -101,13 +134,13 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="border-t py-4 md:hidden">
-            <div className="flex flex-col space-y-3">
-              {navigation.map((item) => (
+          <nav className="border-t py-6 md:hidden">
+            <div className="flex flex-col space-y-4">
+              {mobileNavigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent"
+                  className="text-uppercase-sm px-0 py-2 transition-colors hover:text-foreground/60"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
