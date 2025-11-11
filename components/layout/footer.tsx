@@ -79,7 +79,9 @@ export function Footer() {
                   const formData = new FormData(e.currentTarget);
                   const email = formData.get("email") as string;
                   if (email) {
-                    toast.success("Thanks for subscribing!");
+                    toast.info(
+                      "Newsletter demo - submission not yet connected to backend",
+                    );
                     e.currentTarget.reset();
                   }
                 }}
