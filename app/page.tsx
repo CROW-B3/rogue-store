@@ -125,7 +125,7 @@ export default function HomePage() {
               style={{ y: imageY }}
             >
               <div className="relative h-full w-full overflow-hidden bg-white">
-                <AnimatePresence mode="sync">
+                <AnimatePresence mode="wait">
                   <motion.div
                     key={currentImageIndex}
                     initial={{
@@ -271,7 +271,9 @@ export default function HomePage() {
                 const formData = new FormData(e.currentTarget);
                 const email = formData.get("email") as string;
                 if (email) {
-                  toast.success("Thanks for subscribing!");
+                  toast.info(
+                    "Newsletter demo - submission not yet connected to backend",
+                  );
                   e.currentTarget.reset();
                 }
               }}
