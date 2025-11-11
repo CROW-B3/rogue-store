@@ -6,6 +6,7 @@ import { Container } from "./container";
 import { Facebook, Instagram, Twitter, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 /**
  * Render the site footer with brand, a newsletter signup form, three categorized link groups (Shop, Support, Company), and social icon links.
@@ -73,11 +74,21 @@ export function Footer() {
               </p>
               <form
                 className="mt-4 flex gap-2"
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const email = formData.get("email") as string;
+                  if (email) {
+                    toast.success("Thanks for subscribing!");
+                    e.currentTarget.reset();
+                  }
+                }}
               >
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
+                  required
                   className="flex-1"
                   aria-label="Email for newsletter"
                 />
