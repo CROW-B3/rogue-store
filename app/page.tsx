@@ -13,6 +13,7 @@ import { categories } from "@/data/categories";
 import { ArrowRight, Truck, Shield, RotateCcw } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
+import { toast } from "sonner";
 
 /**
  * Render the site's homepage composed of a hero, feature highlights, category grid, featured products, and newsletter sections.
@@ -265,11 +266,21 @@ export default function HomePage() {
             </p>
             <form
               className="mt-12 flex flex-col sm:flex-row gap-4 mx-auto max-w-xl"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const email = formData.get("email") as string;
+                if (email) {
+                  toast.success("Thanks for subscribing!");
+                  e.currentTarget.reset();
+                }
+              }}
             >
               <Input
                 type="email"
+                name="email"
                 placeholder="Enter your email"
+                required
                 className="flex-1 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:opacity-40 focus:border-primary-foreground h-14"
                 aria-label="Email for newsletter"
               />
