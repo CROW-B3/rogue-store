@@ -33,7 +33,10 @@ export default function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);
 
   // Hero images array
-  const heroImages = ["/model-image-1.png", "/model-image-2.png"];
+  const heroImages = [
+    "https://9cndgv3upu.ufs.sh/f/qeGePzbFA4li6yOARSh47FwkugZemErf03UAahvo5HtIYVW1",
+    "https://9cndgv3upu.ufs.sh/f/qeGePzbFA4liVKD020R8qcaQ0Ed9TouUyY1brwIH3pgk2BDP",
+  ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Auto-swap images every 5 seconds
