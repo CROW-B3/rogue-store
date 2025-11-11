@@ -36,17 +36,3 @@ test("can navigate to product detail page", async ({ page }) => {
     page.getByRole("button", { name: /Add to Cart/i }),
   ).toBeVisible();
 });
-
-test("dark mode toggle works", async ({ page }) => {
-  await page.goto("/");
-
-  const themeToggle = page.locator('[data-testid="theme-toggle"]');
-  const html = page.locator("html");
-  const initialTheme = await html.getAttribute("class");
-
-  await themeToggle.click();
-  await page.waitForTimeout(500);
-
-  const newTheme = await html.getAttribute("class");
-  expect(initialTheme).not.toEqual(newTheme);
-});

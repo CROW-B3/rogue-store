@@ -189,11 +189,8 @@ export default function ProductPage({ params }: ProductPageProps) {
 
               {/* Tabs */}
               <div className="mt-8">
-                <Tabs defaultValue="description">
+                <Tabs defaultValue={product.specs ? "specs" : "shipping"}>
                   <TabsList className="w-full">
-                    <TabsTrigger value="description" className="flex-1">
-                      Description
-                    </TabsTrigger>
                     {product.specs && (
                       <TabsTrigger value="specs" className="flex-1">
                         Specifications
@@ -203,12 +200,6 @@ export default function ProductPage({ params }: ProductPageProps) {
                       Shipping
                     </TabsTrigger>
                   </TabsList>
-
-                  <TabsContent value="description" className="mt-4">
-                    <p className="text-muted-foreground">
-                      {product.description}
-                    </p>
-                  </TabsContent>
 
                   {product.specs && (
                     <TabsContent value="specs" className="mt-4">
