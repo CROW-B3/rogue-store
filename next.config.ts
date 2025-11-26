@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   compress: false,
   poweredByHeader: false,
   trailingSlash: true,
