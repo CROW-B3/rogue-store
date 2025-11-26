@@ -59,9 +59,6 @@ dist
 .wrangler
 
 # Documentation
-README.md
-CHANGELOG.md
-LICENSE
 *.md
 
 # Docker
