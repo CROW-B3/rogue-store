@@ -29,4 +29,7 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-initOpenNextCloudflareForDev();
+
+if (process.env.DOCKER_BUILD !== "true") {
+  initOpenNextCloudflareForDev();
+}
