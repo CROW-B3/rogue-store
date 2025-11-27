@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const nextConfig: NextConfig = {
+  ...(process.env.DOCKER_BUILD === "true" && { output: "standalone" }),
   compress: false,
   poweredByHeader: false,
   trailingSlash: true,
