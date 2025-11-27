@@ -2,8 +2,10 @@ import type { NextConfig } from "next";
 
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
+const isDockerBuild = process.env.DOCKER_BUILD === "true";
+
 const nextConfig: NextConfig = {
-  ...(process.env.DOCKER_BUILD === "true" && { output: "standalone" }),
+  ...(isDockerBuild && { output: "standalone" }),
   compress: false,
   poweredByHeader: false,
   trailingSlash: true,
@@ -30,6 +32,6 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 
-if (process.env.DOCKER_BUILD !== "true") {
+if (!isDockerBuild) {
   initOpenNextCloudflareForDev();
 }
