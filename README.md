@@ -29,6 +29,17 @@ Modern e-commerce storefront built with Next.js 15, React 19, and Tailwind CSS v
 
 ## Quick Start
 
+### Using Docker
+
+```bash
+# Pull and run from Docker Hub
+docker run -p 3000:3000 bitbybitb3/rogue-store:latest
+```
+
+Docker Hub: [bitbybitb3/rogue-store](https://hub.docker.com/r/bitbybitb3/rogue-store)
+
+### Local Development
+
 ```bash
 # Clone and install
 git clone https://github.com/CROW-B3/rogue-store.git
