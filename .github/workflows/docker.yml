@@ -32,6 +32,9 @@ jobs:
           images: bitbybitb3/rogue-store
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha,prefix={{branch}}-
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
