@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { ToastProvider } from "@/components/ui/toast-provider";
 import { WebVitals } from "@/_components/web-vitals";
+import { AutoScreenshotCapture } from "@/components/screenshot-auto-capture";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ export default function RootLayout({
         <CartDrawer />
         <ToastProvider />
         {process.env.NODE_ENV === "production" ? null : <WebVitals />}
+        <AutoScreenshotCapture />
       </body>
     </html>
   );
