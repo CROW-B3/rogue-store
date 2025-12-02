@@ -5,8 +5,10 @@ import { HeroSection } from "@/components/home/hero-section";
 import { CategoriesSection } from "@/components/home/categories-section";
 import { NewsletterSection } from "@/components/home/newsletter-section";
 import { products } from "@/data/products";
+import { WebVitals } from "./_components/web-vitals";
 
 export default function HomePage() {
+  WebVitals();
   const newArrivals = products
     .filter((p) => p.tags.includes("new"))
     .slice(0, 8);

@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle } from "lucide-react";
+import { WebVitals } from "./_components/web-vitals";
 
 /**
  * Renders a centered error screen with an alert icon, message, and retry button.
@@ -22,6 +23,7 @@ export default function ErrorPage({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  WebVitals();
   useEffect(() => {
     console.error(error);
   }, [error]);
