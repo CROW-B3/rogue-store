@@ -20,7 +20,8 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts",
     "prepare": "husky",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "lighthouse:performance": "bunx lighthouse http://localhost:3000 --only-categories=performance --output=json --verbose --chrome-flags=\"--headless\" --output-path ./.lighthouse/lighthouse-performance.json"
   },
   "dependencies": {
     "@b3-crow/website-hook-sdk": "^0.0.9",
