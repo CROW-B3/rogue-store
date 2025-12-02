@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { ToastProvider } from "@/components/ui/toast-provider";
+import { AutoScreenshotCapture } from "@/components/screenshot-auto-capture";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
         </div>
         <CartDrawer />
         <ToastProvider />
+        <AutoScreenshotCapture />
       </body>
     </html>
   );
