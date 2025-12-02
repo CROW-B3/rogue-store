@@ -10,20 +10,14 @@ import { initAutoCapture } from "@b3-crow/website-hook-sdk";
  * a screenshot of the website 5 seconds after it launches.
  *
  * This is a simple wrapper that initializes the SDK's auto-capture feature.
- * All screenshot logic, including handling modern CSS colors (oklab, oklch),
- * is handled internally by the SDK.
+ * All screenshot logic, configuration, upload URL, and metadata are
+ * handled internally by the SDK.
  */
 export function AutoScreenshotCapture() {
   useEffect(() => {
     // Initialize auto-capture with SDK
+    // All configuration (uploadUrl, metadata, etc.) is handled in the SDK
     initAutoCapture({
-      delay: 5000, // 5 seconds
-      filename: `rogue-store-screenshot-${Date.now()}`,
-      viewportOnly: true, // Capture only visible viewport area
-      useCORS: true,
-      backgroundColor: "#ffffff",
-      scale: window.devicePixelRatio,
-      quality: 0.92,
       logging: true, // Enable logging to see capture progress
     });
   }, []);
