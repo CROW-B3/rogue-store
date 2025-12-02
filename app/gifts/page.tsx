@@ -15,11 +15,13 @@ import { products } from "@/data/products";
 import { Home } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { WebVitals } from "../_components/web-vitals";
 
 /**
  * Gifts page displaying curated gift products
  */
 export default function GiftsPage() {
+  WebVitals();
   const giftProducts = products.filter((p) => p.category === "gifts");
 
   return (

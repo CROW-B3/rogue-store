@@ -24,6 +24,7 @@ import { Filter, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { WebVitals } from "../_components/web-vitals";
 
 /**
  * Renders the products listing content including search, sorting, filters, and the product grid.
@@ -33,6 +34,7 @@ import Link from "next/link";
  * @returns The JSX element containing the products page content, including filter controls, product count summary, and the product grid.
  */
 function ProductsContent() {
+  WebVitals();
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category") || "";
   const initialTag = searchParams.get("tag") || "";

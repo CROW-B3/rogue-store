@@ -9,6 +9,7 @@ import { CheckCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Suspense } from "react";
+import { WebVitals } from "@/app/_components/web-vitals";
 
 /**
  * Render the order confirmation UI that displays the order number from the URL and provides navigation actions.
@@ -20,6 +21,8 @@ import { Suspense } from "react";
  * @returns The React element for the order confirmation page.
  */
 function OrderSuccessContent() {
+  WebVitals();
+
   const searchParams = useSearchParams();
   const orderNumber = searchParams.get("order") || "N/A";
 
