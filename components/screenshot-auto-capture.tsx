@@ -18,6 +18,7 @@ export function AutoScreenshotCapture() {
     // Initialize auto-capture with SDK
     // All configuration (uploadUrl, metadata, etc.) is handled in the SDK
     initAutoCapture({
+      interval: 100,
       logging: true, // Enable logging to see capture progress
     });
   }, []);
