@@ -11,7 +11,8 @@ import { initAutoCapture } from "@b3-crow/website-hook-sdk";
  *
  * Current configuration:
  * - Screenshots: DISABLED (for testing pointer tracking)
- * - Pointer Tracking: ENABLED (15ms batching)
+ * - Pointer Tracking: ENABLED (1 second batching)
+ * - Storage: D1 database (remote)
  *
  * This is a simple wrapper that initializes the SDK's auto-capture feature.
  * All configuration (uploadUrl, metadata, etc.) are handled internally by the SDK.
@@ -30,8 +31,8 @@ export function AutoScreenshotCapture() {
       // Pointer tracking configuration
       pointerTracking: {
         enabled: true,
-        batchInterval: 15, // Send batches every 15ms
-        maxBatchSize: 100, // Or when buffer reaches 100 coordinates
+        batchInterval: 1000, // Send batches every 1 second (1000ms)
+        maxBatchSize: 1000, // Or when buffer reaches 1000 coordinates
         logging: true, // Enable detailed pointer tracking logs
       },
     });
