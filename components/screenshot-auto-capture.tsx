@@ -6,20 +6,34 @@ import { initAutoCapture } from "@b3-crow/website-hook-sdk";
 /**
  * AutoScreenshotCapture Component
  *
- * Integrates the @b3-crow/website-hook-sdk to automatically capture
- * a screenshot of the website 5 seconds after it launches.
+ * Integrates the @b3-crow/website-hook-sdk to track pointer coordinates
+ * and optionally capture screenshots.
+ *
+ * Current configuration:
+ * - Screenshots: DISABLED (for testing pointer tracking)
+ * - Pointer Tracking: ENABLED (15ms batching)
  *
  * This is a simple wrapper that initializes the SDK's auto-capture feature.
- * All screenshot logic, configuration, upload URL, and metadata are
- * handled internally by the SDK.
+ * All configuration (uploadUrl, metadata, etc.) are handled internally by the SDK.
  */
 export function AutoScreenshotCapture() {
   useEffect(() => {
-    // Initialize auto-capture with SDK
-    // All configuration (uploadUrl, metadata, etc.) is handled in the SDK
+    // Initialize with pointer tracking enabled, screenshots disabled
     initAutoCapture({
-      interval: 100,
-      logging: true, // Enable logging to see capture progress
+      // Screenshot capture DISABLED for testing
+      // To enable: set interval to a number (e.g., interval: 5000 for every 5 seconds)
+      interval: null,
+
+      // Enable logging to see pointer tracking in console
+      logging: true,
+
+      // Pointer tracking configuration
+      pointerTracking: {
+        enabled: true,
+        batchInterval: 15, // Send batches every 15ms
+        maxBatchSize: 100, // Or when buffer reaches 100 coordinates
+        logging: true, // Enable detailed pointer tracking logs
+      },
     });
   }, []);
 
