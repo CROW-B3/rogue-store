@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { initAutoCapture } from "@b3-crow/website-hook-sdk";
 
 /**
- * AutoScreenshotCapture Component
+ * InteractionTracker Component
  *
- * Integrates the @b3-crow/website-hook-sdk to track pointer coordinates
- * and optionally capture screenshots.
+ * Integrates the @b3-crow/website-hook-sdk to track user interactions
+ * including pointer movements and optionally capture screenshots.
  *
  * Current configuration:
  * - Screenshots: DISABLED (for testing pointer tracking)
@@ -17,7 +17,7 @@ import { initAutoCapture } from "@b3-crow/website-hook-sdk";
  * This is a simple wrapper that initializes the SDK's auto-capture feature.
  * All configuration (uploadUrl, metadata, etc.) are handled internally by the SDK.
  */
-export function AutoScreenshotCapture() {
+export function InteractionTracker() {
   useEffect(() => {
     // Initialize with pointer tracking enabled, screenshots disabled
     initAutoCapture({
