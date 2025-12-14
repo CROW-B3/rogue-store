@@ -18,7 +18,6 @@ import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/lib/cart-store";
 import Link from "next/link";
 import { ShoppingBag, Home } from "lucide-react";
-import { WebVitals } from "../_components/web-vitals";
 
 /**
  * Render the shopping cart page with either an empty-cart view or a populated cart and order summary.
@@ -30,7 +29,6 @@ import { WebVitals } from "../_components/web-vitals";
  * @returns The cart page JSX element that reflects the current cart state (empty or populated).
  */
 export default function CartPage() {
-  WebVitals();
   const { items, summary } = useCartStore();
 
   if (items.length === 0) {

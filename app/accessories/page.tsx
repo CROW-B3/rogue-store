@@ -15,13 +15,11 @@ import { products } from "@/data/products";
 import { Home } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { WebVitals } from "../_components/web-vitals";
 
 /**
  * Accessories page displaying all accessory products
  */
 export default function AccessoriesPage() {
-  WebVitals();
   const accessoriesProducts = products.filter(
     (p) => p.category === "accessories",
   );
