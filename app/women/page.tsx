@@ -15,13 +15,11 @@ import { products } from "@/data/products";
 import { Home } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { WebVitals } from "../_components/web-vitals";
 
 /**
  * Women's collection page displaying all women's clothing products
  */
 export default function WomenPage() {
-  WebVitals();
   const womenProducts = products.filter(
     (p) =>
       p.category === "apparel" &&
