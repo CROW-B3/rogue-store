@@ -36,7 +36,7 @@ export default function RootLayout({
         </div>
         <CartDrawer />
         <ToastProvider />
-        {process.env.NODE_ENV === "production" ? <div /> : <WebVitals />}
+        {process.env.NODE_ENV === "production" ? null : <WebVitals />}
       </body>
     </html>
   );
