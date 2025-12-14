@@ -21,7 +21,6 @@ import { generateOrderNumber } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Home } from "lucide-react";
-import { WebVitals } from "../_components/web-vitals";
 
 /**
  * Renders the checkout page with an order summary and payment summary, handles client-side-only rendering and navigation for empty carts, and provides a "Place Order" action that clears the cart and navigates to a success page.
@@ -29,7 +28,6 @@ import { WebVitals } from "../_components/web-vitals";
  * @returns The checkout page JSX including the list of cart items, a payment summary (subtotal, shipping, tax, total), and a "Place Order" button that finalizes the order and redirects to the success screen.
  */
 export default function CheckoutPage() {
-  WebVitals();
   const { items, summary, clearCart } = useCartStore();
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);

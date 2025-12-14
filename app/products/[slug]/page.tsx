@@ -26,7 +26,6 @@ import { ShoppingCart, Check, Home } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { WebVitals } from "@/app/_components/web-vitals";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -41,7 +40,6 @@ interface ProductPageProps {
  * @returns The JSX element for the product detail page
  */
 export default function ProductPage({ params }: ProductPageProps) {
-  WebVitals();
   const { slug } = use(params);
   const product = products.find((p) => p.slug === slug);
 
