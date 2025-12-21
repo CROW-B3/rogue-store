@@ -13,7 +13,7 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV DOCKER_BUILD=true
-RUN bun run build
+RUN next build
 
 FROM node:20-alpine AS runner
 WORKDIR /app
