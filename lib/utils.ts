@@ -55,3 +55,8 @@ export function debounce<T extends (...args: never[]) => unknown>(
     timeout = setTimeout(() => func(...args), wait);
   };
 }
+
+// eslint-disable-next-line
+export const logWebVitals = (metric: any) => {
+  console.log(metric);
+};
