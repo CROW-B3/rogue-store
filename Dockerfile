@@ -1,22 +1,19 @@
-FROM node:20-alpine AS deps
-RUN corepack enable && corepack prepare pnpm@9 --activate
+FROM oven/bun:1-alpine AS deps
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
+COPY package.json bun.lock ./
 
-RUN pnpm install --frozen-lockfile
+RUN bun install --frozen-lockfile
 
-FROM node:20-alpine AS builder
-RUN corepack enable && corepack prepare pnpm@9 --activate
+FROM oven/bun:1-alpine AS builder
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV DOCKER_BUILD=true
-RUN pnpm build
+RUN bun run build
 
 FROM node:20-alpine AS runner
 WORKDIR /app
