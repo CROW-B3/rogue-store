@@ -13,7 +13,7 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV DOCKER_BUILD=true
-RUN bun run build
+RUN bun run build:docker
 
 FROM oven/bun:1-alpine AS runner
 WORKDIR /app
