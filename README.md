@@ -24,7 +24,7 @@ Modern e-commerce storefront built with Next.js 15, React 19, and Tailwind CSS v
 
 ## Prerequisites
 
-- Bun v1.3+
+- Pnpm
 
 ## Quick Start
 
@@ -43,10 +43,10 @@ Docker Hub: [bitbybitb3/rogue-store](https://hub.docker.com/r/bitbybitb3/rogue-s
 # Clone and install
 git clone https://github.com/CROW-B3/rogue-store.git
 cd rogue-store
-bun install
+pnpm install
 
 # Run dev server
-bun run dev
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the app.
@@ -70,17 +70,17 @@ rogue-store/
 
 ```bash
 # Development
-bun run dev              # Start dev server
-bun run build            # Build for production
-bun run lint             # Run ESLint
-bun run format           # Format with Prettier
+pnpm run dev              # Start dev server
+pnpm run build            # Build for production
+pnpm run lint             # Run ESLint
+pnpm run format           # Format with Prettier
 
 # Testing
-bun run test             # Run Playwright tests
-bun run test:ui          # Run tests in UI mode
+pnpm run test             # Run Playwright tests
+pnpm run test:ui          # Run tests in UI mode
 
 # Deployment
-bun run deploy           # Deploy to Cloudflare Pages
+pnpm run deploy           # Deploy to Cloudflare Pages
 ```
 
 ## Deployment
@@ -89,7 +89,7 @@ bun run deploy           # Deploy to Cloudflare Pages
 
 ```bash
 wrangler login
-bun run deploy
+pnpm run deploy
 ```
 
 ### Vercel
