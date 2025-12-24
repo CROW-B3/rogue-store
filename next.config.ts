@@ -9,9 +9,6 @@ const nextConfig: NextConfig = {
   compress: false,
   poweredByHeader: false,
   trailingSlash: true,
-  experimental: {
-    serverMinification: false,
-  },
   images: {
     remotePatterns: [
       {

@@ -10,13 +10,13 @@
     "binding": "ASSETS",
   },
   "build": {
-    "command": "bun run build:cloudflare",
+    "command": "pnpm run build:cloudflare",
   },
   "kv_namespaces": [
     {
       "binding": "NEXT_INC_CACHE_KV",
-      "id": "5de59b6655254c048ac1bccde2190c4d"
-    }
+      "id": "5de59b6655254c048ac1bccde2190c4d",
+    },
   ],
   "observability": {
     "enabled": true,
@@ -27,9 +27,9 @@
       "kv_namespaces": [
         {
           "binding": "NEXT_INC_CACHE_KV",
-          "id": "7863efdaa9c347e2bbd5bb303b88635a"
-        }
-      ]
+          "id": "7863efdaa9c347e2bbd5bb303b88635a",
+        },
+      ],
     },
   },
 }
