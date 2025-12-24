@@ -8,8 +8,8 @@ importers:
   .:
     dependencies:
       "@b3-crow/website-hook-sdk":
-        specifier: 0.0.17
-        version: 0.0.17
+        specifier: 0.0.18
+        version: 0.0.18
       "@opennextjs/cloudflare":
         specifier: ^1.14.7
         version: 1.14.7(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(wrangler@4.56.0)
@@ -719,10 +719,10 @@ packages:
       }
     engines: { node: ">=18.0.0" }
 
-  "@b3-crow/website-hook-sdk@0.0.17":
+  "@b3-crow/website-hook-sdk@0.0.18":
     resolution:
       {
-        integrity: sha512-t908wOCvF+WJMruSwfOJ3so7JZ4cv8+NTXb2iDbuF5BNVeWxGHlKB9gTjBmSg0se4rvRhbR59Mi2hIL0JAgkEg==,
+        integrity: sha512-5Z0i1pNeAHloegGyKjrqv41sXiW6kKVOEFNsfjGzQVpj5H0XnAXTArE4V7CAD1a8MYI/PnAnezDwCosI+HGCWA==,
       }
 
   "@cloudflare/kv-asset-handler@0.4.1":
@@ -8968,7 +8968,7 @@ snapshots:
 
   "@aws/lambda-invoke-store@0.2.2": {}
 
-  "@b3-crow/website-hook-sdk@0.0.17":
+  "@b3-crow/website-hook-sdk@0.0.18":
     dependencies:
       html2canvas-pro: 1.6.2
       ky: 1.14.1
