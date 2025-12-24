@@ -1,21 +1,24 @@
-FROM oven/bun:1-alpine AS deps
+FROM node:20-alpine AS deps
+RUN corepack enable && corepack prepare pnpm@9 --activate
 WORKDIR /app
 
-COPY package.json bun.lock ./
+COPY package.json pnpm-lock.yaml ./
 
-RUN bun install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
-FROM oven/bun:1-alpine AS builder
+FROM node:20-alpine AS builder
+RUN corepack enable && corepack prepare pnpm@9 --activate
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV DOCKER_BUILD=true
-RUN bun run build:docker
+RUN pnpm build
 
-FROM oven/bun:1-alpine AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
@@ -35,4 +38,4 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-CMD ["bun", "server.js"]
+CMD ["node", "server.js"]
