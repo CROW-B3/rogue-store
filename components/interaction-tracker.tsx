@@ -3,27 +3,28 @@
 import { useEffect } from "react";
 import { initCrow } from "@b3-crow/website-hook-sdk";
 
-export function InteractionTracker() {
+interface InteractionTrackerProps {
+  debug?: boolean;
+}
+
+export function InteractionTracker({ debug = false }: InteractionTrackerProps) {
   useEffect(() => {
-    // Initialize Crow SDK with tracking configuration
     const initSDK = async () => {
       try {
+        // Get projectId from environment variable
+        const projectId = process.env.NEXT_PUBLIC_CROW_PROJECT_ID;
+
+        if (!projectId) {
+          console.error(
+            "[Rouge Store] Missing NEXT_PUBLIC_CROW_PROJECT_ID environment variable",
+          );
+          return;
+        }
+
+        // Initialize SDK with minimal config - all other settings use SDK defaults
         const crow = await initCrow({
-          projectId: "pk_test_abc123def456", // Test project API key
-          apiEndpoint: "http://localhost:8787",
-          capture: {
-            pageViews: true,
-            clicks: true,
-            errors: true,
-            forms: false,
-            performance: false,
-          },
-          batching: {
-            enabled: true,
-            maxBatchSize: 10,
-            flushInterval: 5000, // 5 seconds
-          },
-          debug: true, // Enable debug logging
+          projectId,
+          debug, // Only user-configurable setting
         });
 
         console.log("[Rouge Store] Crow SDK initialized successfully", crow);
@@ -33,7 +34,7 @@ export function InteractionTracker() {
     };
 
     initSDK();
-  }, []);
+  }, [debug]);
 
   return null;
 }
