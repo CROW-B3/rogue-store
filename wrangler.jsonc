@@ -22,8 +22,14 @@
     "enabled": true,
   },
   "placement": { "mode": "smart" },
+  "routes": [
+    { "pattern": "rogue.crowai.dev", "custom_domain": true }
+  ],
   "env": {
     "dev": {
+      "routes": [
+        { "pattern": "dev.rogue.crowai.dev", "custom_domain": true }
+      ],
       "kv_namespaces": [
         {
           "binding": "NEXT_INC_CACHE_KV",
