@@ -26,7 +26,7 @@
     "lighthouse:performance": "pnpm exec lighthouse http://localhost:3000 --only-categories=performance --output=json --verbose --chrome-flags=\"--headless\" --output-path ./.lighthouse/lighthouse-performance.json"
   },
   "dependencies": {
-    "@b3-crow/website-hook-sdk": "0.0.19",
+    "@b3-crow/website-hook-sdk": "file:../website-hook-sdk",
     "@opennextjs/cloudflare": "^1.14.7",
     "@radix-ui/react-checkbox": "^1.3.3",
     "@radix-ui/react-separator": "^1.1.8",
