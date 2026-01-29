@@ -8,8 +8,8 @@ importers:
   .:
     dependencies:
       "@b3-crow/website-hook-sdk":
-        specifier: file:../website-hook-sdk
-        version: file:../website-hook-sdk
+        specifier: 0.0.23
+        version: 0.0.23
       "@opennextjs/cloudflare":
         specifier: ^1.14.7
         version: 1.14.7(next@15.5.6(@opentelemetry/api@1.9.0)(@playwright/test@1.57.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(wrangler@4.56.0)
@@ -719,8 +719,11 @@ packages:
       }
     engines: { node: ">=18.0.0" }
 
-  "@b3-crow/website-hook-sdk@file:../website-hook-sdk":
-    resolution: { directory: ../website-hook-sdk, type: directory }
+  "@b3-crow/website-hook-sdk@0.0.23":
+    resolution:
+      {
+        integrity: sha512-B7EcYVdixItjIQaSUpswuAA/jRFKLaGMpsx9T8Sd8EA9/2eprIXm/+6Uv5XPiIz0qzjoyjQ9VjR2+tABx2bqRw==,
+      }
 
   "@cloudflare/kv-asset-handler@0.4.1":
     resolution:
@@ -5815,10 +5818,10 @@ packages:
       }
     engines: { node: ">=6" }
 
-  ky@1.14.1:
+  ky@1.14.3:
     resolution:
       {
-        integrity: sha512-hYje4L9JCmpEQBtudo+v52X5X8tgWXUYyPcxKSuxQNboqufecl9VMWjGiucAFH060AwPXHZuH+WB2rrqfkmafw==,
+        integrity: sha512-9zy9lkjac+TR1c2tG+mkNSVlyOpInnWdSMiue4F+kq8TwJSgv6o8jhLRg8Ho6SnZ9wOYUq/yozts9qQCfk7bIw==,
       }
     engines: { node: ">=18" }
 
@@ -8933,9 +8936,9 @@ snapshots:
 
   "@aws/lambda-invoke-store@0.2.2": {}
 
-  "@b3-crow/website-hook-sdk@file:../website-hook-sdk":
+  "@b3-crow/website-hook-sdk@0.0.23":
     dependencies:
-      ky: 1.14.1
+      ky: 1.14.3
 
   "@cloudflare/kv-asset-handler@0.4.1":
     dependencies:
@@ -12319,7 +12322,7 @@ snapshots:
 
   kleur@4.1.5: {}
 
-  ky@1.14.1: {}
+  ky@1.14.3: {}
 
   language-subtag-registry@0.3.23: {}
 
