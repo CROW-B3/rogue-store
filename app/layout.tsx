@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { ToastProvider } from "@/components/ui/toast-provider";
 import { WebVitals } from "@/_components/web-vitals";
+import { InteractionTracker } from "@/components/interaction-tracker";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({
         </div>
         <CartDrawer />
         <ToastProvider />
+        <InteractionTracker />
         {process.env.NODE_ENV === "production" ? null : <WebVitals />}
       </body>
     </html>
