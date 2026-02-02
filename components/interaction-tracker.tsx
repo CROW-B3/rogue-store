@@ -7,6 +7,7 @@ export function InteractionTracker() {
   useEffect(() => {
     // Create and initialize the SDK (only runs in browser)
     const crow = createCrowSDK({
+      apiKey: 'pk_test_local_key_1',
       debug: true, // Enable detailed logging
     });
 
