@@ -2,7 +2,7 @@
   "name": "rouge-store",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.26.2",
+  "packageManager": "bun@1.2.4",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -23,7 +23,7 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts",
     "prepare": "husky",
     "lint-staged": "lint-staged",
-    "lighthouse:performance": "pnpm exec lighthouse http://localhost:3000 --only-categories=performance --output=json --verbose --chrome-flags=\"--headless\" --output-path ./.lighthouse/lighthouse-performance.json"
+    "lighthouse:performance": "bunx lighthouse http://localhost:3000 --only-categories=performance --output=json --verbose --chrome-flags=\"--headless\" --output-path ./.lighthouse/lighthouse-performance.json"
   },
   "dependencies": {
     "@b3-crow/website-hook-sdk": "file:../website-hook-sdk",
