@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
@@ -6,6 +7,7 @@ const isDockerBuild = process.env.DOCKER_BUILD === "true";
 
 const nextConfig: NextConfig = {
   ...(isDockerBuild && { output: "standalone" }),
+  outputFileTracingRoot: path.resolve(__dirname),
   compress: false,
   poweredByHeader: false,
   trailingSlash: true,
