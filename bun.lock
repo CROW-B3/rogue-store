@@ -5,7 +5,7 @@
     "": {
       "name": "rouge-store",
       "dependencies": {
-        "@b3-crow/website-hook-sdk": "0.0.27",
+        "@b3-crow/website-hook-sdk": "0.0.28",
         "@opennextjs/cloudflare": "^1.14.7",
         "@radix-ui/react-checkbox": "^1.3.3",
         "@radix-ui/react-separator": "^1.1.8",
@@ -171,7 +171,7 @@
 
     "@aws/lambda-invoke-store": ["@aws/lambda-invoke-store@0.2.2", "", {}, "sha512-C0NBLsIqzDIae8HFw9YIrIBsbc0xTiOtt7fAukGPnqQ/+zZNaq+4jhuccltK0QuWHBnNm/a6kLIRA6GFiM10eg=="],
 
-    "@b3-crow/website-hook-sdk": ["@b3-crow/website-hook-sdk@0.0.26", "", { "dependencies": { "ky": "^1.14.2", "rrweb": "^2.0.0-alpha.17" } }, "sha512-hhKm5sfMymA7Cb20TUHd7wPemeTFtO7EhJLk1gr5Owcb2DoVkD0gvNWYgAiIcJavYO/ECvQlKecd8Nk+xJul7Q=="],
+    "@b3-crow/website-hook-sdk": ["@b3-crow/website-hook-sdk@0.0.28", "", { "dependencies": { "ky": "^1.14.2", "rrweb": "^2.0.0-alpha.17" } }, "sha512-GL/SOd102s8tD9DrvMOfbJJB3PSaJSaPa9d0PI+VO6KngJdb+Kw/fMcPCsAFq86XHTZeuGb3VZeASeKQDUkQew=="],
 
     "@cloudflare/kv-asset-handler": ["@cloudflare/kv-asset-handler@0.4.1", "", { "dependencies": { "mime": "3.0.0" } }, "sha512-Nu8ahitGFFJztxUml9oD/DLb7Z28C8cd8F46IVQ7y5Btz575pvMY8AqZsXkX7Gds29eCKdMgIHjIvzskHgPSFg=="],
 
