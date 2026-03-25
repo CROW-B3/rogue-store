@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { createCrowSDK } from "@b3-crow/website-hook-sdk";
 
-const CROW_API_KEY = "crow_nkGZrQKWUBfXokSGOdWkNMPoMxQALEUS";
+const CROW_API_KEY = "crow_klENmQSVwjVVSNbiSGegfyZIvUNwZErn";
 
 export function InteractionTracker() {
   useEffect(() => {
